@@ -168,10 +168,4 @@ src/
 5. Correct dashboard opened via `NavigationService`
 
 
-## What Changed in This Edited Version
 
-- Homepage now shows all departments, and every department button opens its detail page.
-- Student grades page now has a **Refresh Results** button and shows only **published** grades.
-- Teacher grading now follows the requested **BUET style**: **30 attendance + 60 CT + 210 written main exam = 300**.
-- Saving grades keeps them unpublished until the teacher clicks **Publish Grades**.
-- Refresh support is documented for multi-client usage with a shared MySQL server.
