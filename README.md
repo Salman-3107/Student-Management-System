@@ -92,9 +92,9 @@ These work even without a database (built-in fallback).
 
 | Role    | Username | Password    |
 |---------|----------|-------------|
-| Student | 2405001  | student123  |
-| Student | 2405002  | student123  |
-| Teacher | t.rahman | teacher123  |
+| Student | 2405001  | 2405001     |
+| Student | 2405002  | 2405002     |
+| Teacher | dihan    | dihan123    |
 | Admin   | admin    | admin123    |
 
 ---
