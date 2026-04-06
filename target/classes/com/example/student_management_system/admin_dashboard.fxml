@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.student_management_system.AdminDashboardController"
+            stylesheets="@admin_dashboard.css"
+            prefWidth="1200" prefHeight="800">
+
+    <!-- TOP HEADER -->
+    <top>
+        <HBox spacing="20" styleClass="top-header" alignment="CENTER_LEFT">
+            <padding><Insets top="15" right="25" bottom="15" left="25"/></padding>
+            <VBox spacing="4">
+                <Label text="BUET" styleClass="header-title"/>
+                <Label text="Bangladesh University of Engineering and Technology" styleClass="header-subtitle"/>
+                <Label text="Administration Portal" styleClass="header-small"/>
+            </VBox>
+            <HBox HBox.hgrow="ALWAYS"/>
+            <Label fx:id="headerAdminLabel" text="System Admin" styleClass="teacher-mini-dept"
+                   style="-fx-padding: 0 15 0 0;"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+        </HBox>
+    </top>
+
+    <!-- LEFT SIDEBAR wrapped in ScrollPane -->
+    <left>
+        <ScrollPane fitToWidth="true" styleClass="sidebar-scroll" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+            <content>
+                <VBox spacing="6" styleClass="sidebar" prefWidth="235">
+                    <padding><Insets top="20" right="12" bottom="20" left="12"/></padding>
+
+                    <VBox spacing="5" styleClass="teacher-mini-card">
+                        <Label fx:id="sidebarNameLabel" text="Admin Name" styleClass="teacher-mini-name"/>
+                        <Label text="System Administrator" styleClass="teacher-mini-id"/>
+                        <Label text="Full Access" styleClass="teacher-mini-dept"/>
+                    </VBox>
+
+                    <Label text="OVERVIEW" styleClass="sidebar-section-label"/>
+                    <Button text="🏠  Dashboard" onAction="#showHome" styleClass="sidebar-button"/>
+
+                    <Separator style="-fx-background-color: #333333;"/>
+                    <Label text="USER MANAGEMENT" styleClass="sidebar-section-label"/>
+                    <Button text="👤  Manage Students" onAction="#showStudents" styleClass="sidebar-button"/>
+                    <Button text="🎓  Manage Teachers" onAction="#showTeachers" styleClass="sidebar-button"/>
+                    <Button text="🔐  Roles &amp; Permissions" onAction="#showRoles" styleClass="sidebar-button"/>
+
+                    <Separator style="-fx-background-color: #333333;"/>
+                    <Label text="ACADEMIC" styleClass="sidebar-section-label"/>
+                    <Button text="📚  Departments" onAction="#showDepartments" styleClass="sidebar-button"/>
+                    <Button text="📖  Courses" onAction="#showCourses" styleClass="sidebar-button"/>
+                    <Button text="🗓  Semesters" onAction="#showSemesters" styleClass="sidebar-button"/>
+
+                    <Separator style="-fx-background-color: #333333;"/>
+                    <Label text="OPERATIONS" styleClass="sidebar-section-label"/>
+                    <Button text="💰  Fee Management" onAction="#showFees" styleClass="sidebar-button"/>
+                    <Button text="📊  Reports" onAction="#showReports" styleClass="sidebar-button"/>
+                    <Button text="⚙  System Settings" onAction="#showSettings" styleClass="sidebar-button"/>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </left>
+
+    <!-- CENTER CONTENT -->
+    <center>
+        <StackPane fx:id="contentPane" styleClass="main-content">
+
+            <!-- HOME SECTION -->
+            <ScrollPane fx:id="homeSection" fitToWidth="true" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Admin Dashboard" styleClass="section-title"/>
+                            <Label text="System overview and quick controls" styleClass="section-subtitle"/>
+                        </VBox>
+
+                        <!-- Stats Row 1 -->
+                        <HBox spacing="15">
+                            <VBox spacing="6" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label text="1,245" styleClass="stat-value"/>
+                                <Label text="Total Students" styleClass="stat-label"/>
+                                <Label text="Currently enrolled" styleClass="field-label"/>
+                            </VBox>
+                            <VBox spacing="6" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label text="84" styleClass="stat-value"/>
+                                <Label text="Total Teachers" styleClass="stat-label"/>
+                                <Label text="Active faculty" styleClass="field-label"/>
+                            </VBox>
+                            <VBox spacing="6" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label text="12" styleClass="stat-value"/>
+                                <Label text="Departments" styleClass="stat-label"/>
+                                <Label text="Active programs" styleClass="field-label"/>
+                            </VBox>
+                            <VBox spacing="6" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label text="156" styleClass="stat-value"/>
+                                <Label text="Active Courses" styleClass="stat-label"/>
+                                <Label text="This semester" styleClass="field-label"/>
+                            </VBox>
+                        </HBox>
+
+                        <!-- Stats Row 2 -->
+                        <HBox spacing="15">
+                            <VBox spacing="6" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label text="৳ 1.2M" styleClass="stat-value"/>
+                                <Label text="Fees Collected" styleClass="stat-label"/>
+                                <Label text="This month" styleClass="field-label"/>
+                            </VBox>
+                            <VBox spacing="6" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label text="47" styleClass="stat-value"/>
+                                <Label text="Pending Requests" styleClass="stat-label"/>
+                                <Label text="Needs approval" styleClass="field-label"/>
+                            </VBox>
+                            <VBox spacing="6" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label text="89%" styleClass="stat-value"/>
+                                <Label text="Attendance Rate" styleClass="stat-label"/>
+                                <Label text="System average" styleClass="field-label"/>
+                            </VBox>
+                            <VBox spacing="6" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label text="23" styleClass="stat-value"/>
+                                <Label text="Dues Pending" styleClass="stat-label"/>
+                                <Label text="Students with dues" styleClass="field-label"/>
+                            </VBox>
+                        </HBox>
+
+                        <!-- Quick Actions -->
+                        <VBox spacing="12" styleClass="card">
+                            <Label text="Quick Actions" styleClass="card-title"/>
+                            <VBox fx:id="quickActionsBox" spacing="8"/>
+                        </VBox>
+
+                        <!-- Recent Activity + Pending Approvals -->
+                        <HBox spacing="15">
+                            <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
+                                <Label text="Recent Activity" styleClass="card-title"/>
+                                <VBox fx:id="recentActivityBox" spacing="8"/>
+                            </VBox>
+                            <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
+                                <Label text="Pending Approvals" styleClass="card-title"/>
+                                <VBox fx:id="pendingApprovalsBox" spacing="8"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- MANAGE STUDENTS — now scrollable -->
+            <ScrollPane fx:id="studentsSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Manage Students" styleClass="section-title"/>
+                            <Label text="View, add, edit and manage student accounts" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="studentsContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- MANAGE TEACHERS — now scrollable -->
+            <ScrollPane fx:id="teachersSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Manage Teachers" styleClass="section-title"/>
+                            <Label text="View and manage faculty accounts and assignments" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="teachersContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- ROLES — now scrollable -->
+            <ScrollPane fx:id="rolesSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Roles &amp; Permissions" styleClass="section-title"/>
+                            <Label text="Control access levels across the system" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="rolesContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- DEPARTMENTS — now scrollable -->
+            <ScrollPane fx:id="departmentsSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Departments" styleClass="section-title"/>
+                            <Label text="Manage university departments and programs" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="departmentsContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- COURSES — now scrollable -->
+            <ScrollPane fx:id="coursesSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Course Management" styleClass="section-title"/>
+                            <Label text="Add, edit and assign courses to departments" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="coursesContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- SEMESTERS — now scrollable -->
+            <ScrollPane fx:id="semestersSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Semester Management" styleClass="section-title"/>
+                            <Label text="Configure academic sessions and timetables" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="semestersContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- FEES — now scrollable -->
+            <ScrollPane fx:id="feesSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Fee Management" styleClass="section-title"/>
+                            <Label text="Track payments, dues and financial records" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="feesContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- REPORTS — now scrollable -->
+            <ScrollPane fx:id="reportsSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="Reports &amp; Analytics" styleClass="section-title"/>
+                            <Label text="System-wide statistics and downloadable reports" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="reportsContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- SETTINGS — now scrollable -->
+            <ScrollPane fx:id="settingsSection" fitToWidth="true" visible="false" managed="false" styleClass="content-scroll">
+                <content>
+                    <VBox spacing="18" styleClass="section-container">
+                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                        <VBox spacing="4" styleClass="section-header-box">
+                            <Label text="System Settings" styleClass="section-title"/>
+                            <Label text="Configure system-wide preferences and security" styleClass="section-subtitle"/>
+                        </VBox>
+                        <VBox fx:id="settingsContentBox" spacing="15"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+        </StackPane>
+    </center>
+</BorderPane>

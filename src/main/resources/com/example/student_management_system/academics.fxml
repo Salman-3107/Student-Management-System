@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.AcademicsController">
+
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="university-bar">
+                <padding><Insets bottom="15" left="30" right="30" top="15" /></padding>
+                <ImageView fitHeight="104.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../../../buet%20logo.png" /></image>
+                </ImageView>
+                <VBox spacing="5">
+                    <Label styleClass="university-name-bangla" text="বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়"><font><Font name="System" size="18" /></font></Label>
+                    <Label styleClass="university-name" text="BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY"><font><Font name="System Bold" size="16" /></font></Label>
+                    <Label styleClass="subtitle" text="Student Management System"><font><Font name="System" size="12" /></font></Label>
+                </VBox>
+                <Button onAction="#handleLogin" prefHeight="40" prefWidth="100" styleClass="login-btn" text="Login"><font><Font name="System Bold" size="14" /></font></Button>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="0" styleClass="nav-bar">
+                <padding><Insets left="30" /></padding>
+                <Button onAction="#showHome" styleClass="nav-btn" text="Home" />
+                <Button onAction="#showAcademics" styleClass="nav-btn, nav-btn-active" text="Academics" />
+                <Button onAction="#showAdmissions" styleClass="nav-btn" text="Admissions" />
+                <Button onAction="#showDepartments" styleClass="nav-btn" text="Departments" />
+                <Button onAction="#showResearch" styleClass="nav-btn" text="Research" />
+                <Button onAction="#showCampusLife" styleClass="nav-btn" text="Campus Life" />
+                <Button onAction="#showContact" styleClass="nav-btn" text="Contact" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="30" styleClass="main-content">
+                <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+
+                <!-- Page Hero -->
+                <VBox alignment="CENTER" spacing="12" styleClass="page-hero">
+                    <padding><Insets bottom="50" left="40" right="40" top="50" /></padding>
+                    <Label styleClass="page-hero-tag" text="ACADEMICS" />
+                    <Label styleClass="hero-title" text="Academic Programs at BUET">
+                        <font><Font name="System Bold" size="34" /></font>
+                    </Label>
+                    <Label styleClass="hero-subtitle" text="World-class engineering education across undergraduate, postgraduate, and doctoral levels">
+                        <font><Font name="System" size="15" /></font>
+                    </Label>
+                </VBox>
+
+                <!-- Programs Tabs -->
+                <!-- Undergraduate -->
+                <VBox spacing="20" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <Label styleClass="program-badge-ug" text="UG" />
+                        <Label styleClass="section-title" text="Undergraduate Programs (B.Sc. Engineering / B.Arch / B.U.R.P.)">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                    </HBox>
+                    <Label wrapText="true" styleClass="program-desc" text="BUET offers 4-year B.Sc. Engineering programs across 10 engineering departments, a 5-year B.Arch program, and a 4-year B.U.R.P. program. Admission is through a highly competitive national entrance examination." />
+
+                    <GridPane hgap="15" vgap="12">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" />
+                            <ColumnConstraints percentWidth="50" />
+                        </columnConstraints>
+
+                        <VBox styleClass="program-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="🏗️  B.Sc. in Civil Engineering (CE)" />
+                            <Label styleClass="program-card-text" text="Duration: 4 years (8 semesters) · 160 credit hours" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="⚡  B.Sc. in Electrical &amp; Electronic Engg. (EEE)" />
+                            <Label styleClass="program-card-text" text="Duration: 4 years (8 semesters) · 160 credit hours" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="💻  B.Sc. in Computer Science &amp; Engg. (CSE)" />
+                            <Label styleClass="program-card-text" text="Duration: 4 years (8 semesters) · 160 credit hours" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="⚙️  B.Sc. in Mechanical Engineering (ME)" />
+                            <Label styleClass="program-card-text" text="Duration: 4 years (8 semesters) · 160 credit hours" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="🏛️  Bachelor of Architecture (Arch)" />
+                            <Label styleClass="program-card-text" text="Duration: 5 years (10 semesters) · 202 credit hours" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="🏙️  B.U.R.P. — Urban &amp; Regional Planning" />
+                            <Label styleClass="program-card-text" text="Duration: 4 years (8 semesters) · 160 credit hours" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="🧪  B.Sc. in Chemical Engineering (ChE)" />
+                            <Label styleClass="program-card-text" text="Duration: 4 years (8 semesters) · 160 credit hours" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="🔬  B.Sc. in Biomedical Engineering (BME)" />
+                            <Label styleClass="program-card-text" text="Duration: 4 years (8 semesters) · 160 credit hours" wrapText="true" />
+                        </VBox>
+                        <rowConstraints>
+                            <RowConstraints /><RowConstraints /><RowConstraints /><RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+
+                <!-- Postgraduate -->
+                <VBox spacing="20" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <Label styleClass="program-badge-pg" text="PG" />
+                        <Label styleClass="section-title" text="Postgraduate Programs (M.Sc. Engg. / M.Engg. / M.Arch / M.U.R.P.)">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                    </HBox>
+                    <Label wrapText="true" styleClass="program-desc" text="BUET offers thesis-based M.Sc. Engineering, course-based M.Engineering, M.Architecture, and M.U.R.P. degrees. Admission is open to graduates with relevant B.Sc./B.Arch/B.U.R.P. degrees from recognized universities." />
+                    <GridPane hgap="15" vgap="12">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" />
+                            <ColumnConstraints percentWidth="50" />
+                        </columnConstraints>
+                        <VBox styleClass="program-card-pg" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="📐  M.Sc. Engineering (Thesis)" />
+                            <Label styleClass="program-card-text" text="Research-based, available in all 13 departments" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card-pg" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="🖊️  M.Engineering (Course-based)" />
+                            <Label styleClass="program-card-text" text="Professional degree, industry-oriented coursework" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card-pg" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="🏛️  M.Architecture" />
+                            <Label styleClass="program-card-text" text="Advanced architectural design and research" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="program-card-pg" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="program-card-title" text="🏙️  M.U.R.P. — Urban Planning (PG)" />
+                            <Label styleClass="program-card-text" text="Advanced urban and regional planning studies" wrapText="true" />
+                        </VBox>
+                        <rowConstraints>
+                            <RowConstraints /><RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+
+                <!-- Doctoral -->
+                <VBox spacing="15" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <Label styleClass="program-badge-phd" text="Ph.D" />
+                        <Label styleClass="section-title" text="Doctoral Programs (Ph.D.)">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                    </HBox>
+                    <Label wrapText="true" styleClass="program-desc" text="BUET's Ph.D. program is a rigorous research degree offered across all departments. Candidates are supervised by internationally recognized faculty members and are expected to produce original contributions to knowledge. Minimum duration is 3 years; candidates must pass a qualifying examination and defend a dissertation before a committee that includes external members." />
+                    <HBox spacing="20">
+                        <VBox styleClass="phd-info-box" HBox.hgrow="ALWAYS">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="phd-info-label" text="Minimum Duration" />
+                            <Label styleClass="phd-info-value" text="3 Years" />
+                        </VBox>
+                        <VBox styleClass="phd-info-box" HBox.hgrow="ALWAYS">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="phd-info-label" text="Departments Offering" />
+                            <Label styleClass="phd-info-value" text="13 Departments" />
+                        </VBox>
+                        <VBox styleClass="phd-info-box" HBox.hgrow="ALWAYS">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="phd-info-label" text="Research Areas" />
+                            <Label styleClass="phd-info-value" text="Multidisciplinary" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Academic Calendar Info -->
+                <VBox spacing="15" styleClass="info-box-dark">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="📅  Academic Calendar 2025–26">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <GridPane hgap="30" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33" />
+                            <ColumnConstraints percentWidth="33" />
+                            <ColumnConstraints percentWidth="34" />
+                        </columnConstraints>
+                        <Label styleClass="cal-label" text="Odd Semester Starts:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label styleClass="cal-value" text="January 2026" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label styleClass="cal-label" text="Even Semester Starts:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label styleClass="cal-value" text="July 2026" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label styleClass="cal-label" text="Mid-term Examinations:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label styleClass="cal-value" text="March &amp; September" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label styleClass="cal-label" text="Final Examinations:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label styleClass="cal-value" text="June &amp; December" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <rowConstraints>
+                            <RowConstraints /><RowConstraints /><RowConstraints /><RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <VBox styleClass="footer">
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+            <HBox alignment="CENTER" spacing="50">
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Quick Links"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Hyperlink onAction="#showAboutBUET" styleClass="footer-link" text="About BUET" />
+                    <Hyperlink onAction="#showAdmissions" styleClass="footer-link" text="Admissions" />
+                </VBox>
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Contact"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Label styleClass="footer-text" text="West Palashi, Dhaka 1205" />
+                    <Label styleClass="footer-text" text="Phone: +880-2-9665650" />
+                    <Label styleClass="footer-text" text="Email: info@buet.ac.bd" />
+                </VBox>
+            </HBox>
+            <Label alignment="CENTER" styleClass="copyright" text="© 2026 Bangladesh University of Engineering and Technology. All Rights Reserved."><font><Font size="12" /></font></Label>
+        </VBox>
+    </bottom>
+</BorderPane>

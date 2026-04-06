@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.DepartmentsPageController">
+
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="university-bar">
+                <padding><Insets bottom="15" left="30" right="30" top="15" /></padding>
+                <ImageView fitHeight="104.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../../../buet%20logo.png" /></image>
+                </ImageView>
+                <VBox spacing="5">
+                    <Label styleClass="university-name-bangla" text="বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়"><font><Font name="System" size="18" /></font></Label>
+                    <Label styleClass="university-name" text="BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY"><font><Font name="System Bold" size="16" /></font></Label>
+                    <Label styleClass="subtitle" text="Student Management System"><font><Font name="System" size="12" /></font></Label>
+                </VBox>
+                <Button onAction="#handleLogin" prefHeight="40" prefWidth="100" styleClass="login-btn" text="Login"><font><Font name="System Bold" size="14" /></font></Button>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="0" styleClass="nav-bar">
+                <padding><Insets left="30" /></padding>
+                <Button onAction="#showHome" styleClass="nav-btn" text="Home" />
+                <Button onAction="#showAcademics" styleClass="nav-btn" text="Academics" />
+                <Button onAction="#showAdmissions" styleClass="nav-btn" text="Admissions" />
+                <Button onAction="#showDepartments" styleClass="nav-btn, nav-btn-active" text="Departments" />
+                <Button onAction="#showResearch" styleClass="nav-btn" text="Research" />
+                <Button onAction="#showCampusLife" styleClass="nav-btn" text="Campus Life" />
+                <Button onAction="#showContact" styleClass="nav-btn" text="Contact" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="30" styleClass="main-content">
+                <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+
+                <VBox alignment="CENTER" spacing="12" styleClass="page-hero">
+                    <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
+                    <Label styleClass="page-hero-tag" text="DEPARTMENTS" />
+                    <Label styleClass="hero-title" text="Schools &amp; Departments"><font><Font name="System Bold" size="34" /></font></Label>
+                    <Label styleClass="hero-subtitle" text="13 departments across Engineering, Architecture, and Planning faculties">
+                        <font><Font name="System" size="15" /></font>
+                    </Label>
+                </VBox>
+
+                <!-- Engineering Departments -->
+                <VBox spacing="15" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="⚙️  Faculty of Engineering">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <GridPane hgap="15" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33" />
+                            <ColumnConstraints percentWidth="33" />
+                            <ColumnConstraints percentWidth="34" />
+                        </columnConstraints>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openCE" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="CE" />
+                            <Label styleClass="dept-card-name" text="Civil Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Structural, environmental, geotechnical &amp; transportation engineering" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openEEE" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="EEE" />
+                            <Label styleClass="dept-card-name" text="Electrical &amp; Electronic Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Power systems, electronics, communications &amp; control" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openCSE" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="CSE" />
+                            <Label styleClass="dept-card-name" text="Computer Science &amp; Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Algorithms, AI, software systems &amp; networks" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openME" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="ME" />
+                            <Label styleClass="dept-card-name" text="Mechanical Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Thermodynamics, fluid mechanics, manufacturing &amp; robotics" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openChE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="ChE" />
+                            <Label styleClass="dept-card-name" text="Chemical Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Process design, reaction engineering &amp; industrial chemistry" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openIPE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="IPE" />
+                            <Label styleClass="dept-card-name" text="Industrial &amp; Production Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Operations research, manufacturing systems &amp; supply chain" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openWRE" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="WRE" />
+                            <Label styleClass="dept-card-name" text="Water Resources Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Hydrology, flood control, irrigation &amp; water management" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openNAME" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="NAME" />
+                            <Label styleClass="dept-card-name" text="Naval Architecture &amp; Marine Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Ship design, marine structures &amp; offshore engineering" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openBME" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="BME" />
+                            <Label styleClass="dept-card-name" text="Biomedical Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Healthcare devices, diagnostics &amp; rehabilitation tech" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openMME" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="MME" />
+                            <Label styleClass="dept-card-name" text="Materials &amp; Metallurgical Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Metals, alloys, polymers, ceramics &amp; corrosion" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openNCE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="NCE" />
+                            <Label styleClass="dept-card-name" text="Nanomaterials &amp; Ceramic Engineering" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Advanced ceramics, nanotechnology &amp; functional materials" wrapText="true" />
+                        </VBox>
+                        <rowConstraints>
+                            <RowConstraints /><RowConstraints /><RowConstraints /><RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+
+                <!-- Architecture & Planning -->
+                <VBox spacing="15" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="🏛️  Faculty of Architecture &amp; Planning">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <GridPane hgap="15" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" />
+                            <ColumnConstraints percentWidth="50" />
+                        </columnConstraints>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openArch" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="Arch" />
+                            <Label styleClass="dept-card-name" text="Architecture" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="Building design, urban form, sustainability &amp; aesthetics" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="dept-detail-card" onMouseClicked="#openURP" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="dept-card-abbr" text="URP" />
+                            <Label styleClass="dept-card-name" text="Urban &amp; Regional Planning" wrapText="true" />
+                            <Label styleClass="dept-card-desc" text="City planning, land use, transportation &amp; housing" wrapText="true" />
+                        </VBox>
+                        <rowConstraints><RowConstraints /></rowConstraints>
+                    </GridPane>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <VBox styleClass="footer">
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+            <HBox alignment="CENTER" spacing="50">
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Quick Links"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Hyperlink onAction="#showAboutBUET" styleClass="footer-link" text="About BUET" />
+                    <Hyperlink onAction="#showAdmissions" styleClass="footer-link" text="Admissions" />
+                </VBox>
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Contact"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Label styleClass="footer-text" text="West Palashi, Dhaka 1205" />
+                    <Label styleClass="footer-text" text="Phone: +880-2-9665650" />
+                    <Label styleClass="footer-text" text="Email: info@buet.ac.bd" />
+                </VBox>
+            </HBox>
+            <Label alignment="CENTER" styleClass="copyright" text="© 2026 Bangladesh University of Engineering and Technology. All Rights Reserved."><font><Font size="12" /></font></Label>
+        </VBox>
+    </bottom>
+</BorderPane>

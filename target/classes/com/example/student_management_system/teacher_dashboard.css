@@ -1,0 +1,227 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #1a1a1a;
+}
+
+/* ── Header ── */
+.top-header {
+    -fx-background-color: #111111;
+    -fx-border-color: transparent transparent #cc0000 transparent;
+    -fx-border-width: 0 0 3 0;
+}
+
+.header-title {
+    -fx-text-fill: #f0c040;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.header-subtitle {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.header-small {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 12px;
+}
+
+.logout-button {
+    -fx-background-color: #cc0000;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: #e00000;
+}
+
+/* ── Sidebar ScrollPane ── */
+.sidebar-scroll {
+    -fx-background: #222222;
+    -fx-background-color: #222222;
+    -fx-border-color: transparent #333333 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-scroll > .viewport {
+    -fx-background-color: #222222;
+}
+
+.sidebar-scroll > .scroll-bar:vertical {
+    -fx-background-color: #222222;
+    -fx-pref-width: 6;
+}
+
+.sidebar-scroll > .scroll-bar:vertical > .thumb {
+    -fx-background-color: #444444;
+    -fx-background-radius: 3;
+}
+
+/* ── Sidebar VBox ── */
+.sidebar {
+    -fx-background-color: #222222;
+    -fx-min-width: 235;
+    -fx-max-width: 235;
+}
+
+.teacher-mini-card {
+    -fx-background-color: #2d2d2d;
+    -fx-padding: 15;
+    -fx-background-radius: 6;
+    -fx-border-color: #3a3a3a;
+    -fx-border-radius: 6;
+}
+
+.teacher-mini-name {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.teacher-mini-id {
+    -fx-text-fill: #bbbbbb;
+    -fx-font-size: 12px;
+}
+
+.teacher-mini-dept {
+    -fx-text-fill: #f0c040;
+    -fx-font-size: 11px;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #dddddd;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-max-width: Infinity;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+}
+
+.sidebar-button:focused {
+    -fx-background-color: #cc0000;
+    -fx-text-fill: white;
+}
+
+.sidebar-section-label {
+    -fx-text-fill: #555555;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 12 4 12;
+}
+
+/* ── Main content area ── */
+.main-content {
+    -fx-background-color: #1a1a1a;
+}
+
+.content-scroll {
+    -fx-background: #1a1a1a;
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: transparent;
+}
+
+.content-scroll > .viewport {
+    -fx-background-color: #1a1a1a;
+}
+
+.content-scroll > .scroll-bar:vertical {
+    -fx-background-color: #1a1a1a;
+    -fx-pref-width: 8;
+}
+
+.content-scroll > .scroll-bar:vertical > .thumb {
+    -fx-background-color: #444444;
+    -fx-background-radius: 4;
+}
+
+.content-scroll > .scroll-bar:vertical > .thumb:hover {
+    -fx-background-color: #666666;
+}
+
+/* ── Section layout ── */
+.section-container {
+    -fx-background-color: #1a1a1a;
+}
+
+.section-header-box {
+    -fx-background-color: #222222;
+    -fx-border-color: transparent transparent transparent #cc0000;
+    -fx-border-width: 0 0 0 4;
+    -fx-padding: 12;
+    -fx-background-radius: 4;
+}
+
+.section-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.section-subtitle {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 12px;
+}
+
+/* ── Cards ── */
+.card {
+    -fx-background-color: #2d2d2d;
+    -fx-padding: 20;
+    -fx-background-radius: 6;
+    -fx-border-color: #3a3a3a;
+    -fx-border-radius: 6;
+}
+
+.card-title {
+    -fx-text-fill: #f0c040;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.field-label {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 12px;
+}
+
+.field-value {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+/* ── Stat cards ── */
+.stat-card {
+    -fx-background-color: #2d2d2d;
+    -fx-padding: 18;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #3a3a3a;
+    -fx-border-width: 1;
+}
+
+.stat-card:hover {
+    -fx-border-color: #cc0000;
+}
+
+.stat-value {
+    -fx-text-fill: #f0c040;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.stat-label {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}

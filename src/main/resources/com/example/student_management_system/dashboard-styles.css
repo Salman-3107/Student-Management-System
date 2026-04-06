@@ -1,0 +1,221 @@
+/* Dashboard Styles */
+
+.border-pane {
+    -fx-background-color: #F5F7FA;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.dashboard-header {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+.header-bar {
+    -fx-background-color: white;
+}
+
+.header-logo {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+    -fx-padding: 8 15 8 15;
+    -fx-background-radius: 6;
+    -fx-font-weight: bold;
+}
+
+.header-title {
+    -fx-text-fill: #2C3E50;
+    -fx-font-weight: bold;
+}
+
+.user-name {
+    -fx-text-fill: #2C3E50;
+}
+
+.logout-btn {
+    -fx-background-color: #C8102E;
+    -fx-text-fill: white;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #a00d24;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.sidebar {
+    -fx-background-color: white;
+    -fx-border-color: transparent #DFE6E9 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.menu-heading {
+    -fx-text-fill: #7F8C8D;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+    -fx-padding: 10 15 5 15;
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2C3E50;
+    -fx-padding: 12 15 12 15;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 13;
+}
+
+.menu-item:hover {
+    -fx-background-color: #F5F7FA;
+    -fx-text-fill: #003366;
+}
+
+.menu-item:pressed {
+    -fx-background-color: #E8ECEF;
+}
+
+/* ============================================
+   CONTENT AREA
+   ============================================ */
+
+.content-area {
+    -fx-background-color: #F5F7FA;
+}
+
+.content-area > .viewport {
+    -fx-background-color: #F5F7FA;
+}
+
+.dashboard-content {
+    -fx-background-color: #F5F7FA;
+}
+
+/* ============================================
+   WELCOME SECTION
+   ============================================ */
+
+.welcome-section {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);
+}
+
+.welcome-title {
+    -fx-text-fill: #2C3E50;
+    -fx-font-weight: bold;
+}
+
+.welcome-subtitle {
+    -fx-text-fill: #7F8C8D;
+}
+
+/* ============================================
+   STAT CARDS
+   ============================================ */
+
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);
+}
+
+.stat-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 4);
+    -fx-scale-y: 1.03;
+    -fx-scale-x: 1.03;
+}
+
+/* ============================================
+   QUICK ACTIONS
+   ============================================ */
+
+.quick-actions-section {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);
+}
+
+.section-title {
+    -fx-text-fill: #2C3E50;
+    -fx-font-weight: bold;
+}
+
+.quick-action-btn {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-font-size: 13;
+    -fx-font-weight: 500;
+}
+
+.quick-action-btn:hover {
+    -fx-background-color: #004d99;
+    -fx-scale-y: 1.05;
+    -fx-scale-x: 1.05;
+}
+
+/* ============================================
+   RECENT ACTIVITY
+   ============================================ */
+
+.recent-activity-section {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);
+}
+
+.activity-box {
+    -fx-background-color: #F5F7FA;
+    -fx-background-radius: 8;
+}
+
+.activity-item {
+    -fx-padding: 10;
+    -fx-background-radius: 6;
+}
+
+.activity-item:hover {
+    -fx-background-color: white;
+    -fx-cursor: hand;
+}
+
+/* ============================================
+   SCROLL BAR
+   ============================================ */
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #F5F7FA;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #BDC3C7;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #95A5A6;
+}
+
+/* ============================================
+   SEPARATOR
+   ============================================ */
+
+.separator .line {
+    -fx-background-color: #DFE6E9;
+}

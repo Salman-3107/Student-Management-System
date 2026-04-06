@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="page-background" stylesheets="@login-styles.css" xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.LoginController">
+
+    <top>
+        <VBox styleClass="login-header">
+            <HBox alignment="CENTER" spacing="18">
+                <Label styleClass="login-brand" text="BUET"/>
+            </HBox>
+            <Label styleClass="login-university" text="Bangladesh University of Engineering and Technology"/>
+            <Label styleClass="login-system" text="Student Management System"/>
+        </VBox>
+    </top>
+
+    <center>
+        <StackPane>
+            <VBox maxWidth="560" spacing="18" styleClass="login-card">
+                <padding>
+                    <Insets bottom="28" left="28" right="28" top="28"/>
+                </padding>
+
+                <VBox spacing="6">
+                    <Label styleClass="login-title" text="Login to Your Account"/>
+                    <Label styleClass="login-subtitle" text="Access the BUET student management portal securely."/>
+                </VBox>
+
+                <Label styleClass="field-label" text="Login As"/>
+                <ComboBox fx:id="userTypeCombo" maxWidth="Infinity"/>
+
+                <Label styleClass="field-label" text="Student ID / Username"/>
+                <TextField fx:id="usernameField" maxWidth="Infinity" promptText="Enter username"/>
+
+                <Label styleClass="field-label" text="Password"/>
+                <PasswordField fx:id="passwordField" maxWidth="Infinity" promptText="Enter password"/>
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <CheckBox fx:id="rememberMeCheckBox" text="Remember Me"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Hyperlink onAction="#handleForgotPassword" text="Forgot Password?"/>
+                </HBox>
+
+                <!-- Error Panel: shown by controller on bad login -->
+                <HBox fx:id="errorBox" alignment="CENTER_LEFT" spacing="10"
+                      style="-fx-background-color: rgba(200,16,46,0.15); -fx-background-radius: 6; -fx-border-color: #c8102e; -fx-border-width: 1; -fx-border-radius: 6;"
+                      visible="false" managed="false">
+                    <padding>
+                        <Insets bottom="10" left="14" right="14" top="10"/>
+                    </padding>
+                    <Label text="✖" style="-fx-text-fill: #e74c3c; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <Label fx:id="errorLabel" wrapText="true" maxWidth="Infinity"
+                           style="-fx-text-fill: #ff4d4d; -fx-font-size: 13px; -fx-font-weight: bold;"
+                           HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <Button defaultButton="true" maxWidth="Infinity" onAction="#handleLogin" styleClass="primary-login-btn"
+                        text="Login"/>
+
+                <HBox alignment="CENTER" spacing="5">
+                    <Label styleClass="muted-text" text="Don't have an account?"/>
+                    <Hyperlink onAction="#handleRegister" text="Register Here"/>
+                </HBox>
+
+                <Button maxWidth="Infinity" onAction="#handleBack" styleClass="back-btn" text="Back to Home"/>
+            </VBox>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <Label styleClass="login-footer" text="© 2026 BUET. All Rights Reserved."/>
+    </bottom>
+</BorderPane>

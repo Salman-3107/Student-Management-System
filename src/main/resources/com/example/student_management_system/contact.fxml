@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.ContactController">
+
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="university-bar">
+                <padding><Insets bottom="15" left="30" right="30" top="15" /></padding>
+                <ImageView fitHeight="104.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../../../buet%20logo.png" /></image>
+                </ImageView>
+                <VBox spacing="5">
+                    <Label styleClass="university-name-bangla" text="বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়"><font><Font name="System" size="18" /></font></Label>
+                    <Label styleClass="university-name" text="BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY"><font><Font name="System Bold" size="16" /></font></Label>
+                    <Label styleClass="subtitle" text="Student Management System"><font><Font name="System" size="12" /></font></Label>
+                </VBox>
+                <Button onAction="#handleLogin" prefHeight="40" prefWidth="100" styleClass="login-btn" text="Login"><font><Font name="System Bold" size="14" /></font></Button>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="0" styleClass="nav-bar">
+                <padding><Insets left="30" /></padding>
+                <Button onAction="#showHome" styleClass="nav-btn" text="Home" />
+                <Button onAction="#showAcademics" styleClass="nav-btn" text="Academics" />
+                <Button onAction="#showAdmissions" styleClass="nav-btn" text="Admissions" />
+                <Button onAction="#showDepartments" styleClass="nav-btn" text="Departments" />
+                <Button onAction="#showResearch" styleClass="nav-btn" text="Research" />
+                <Button onAction="#showCampusLife" styleClass="nav-btn" text="Campus Life" />
+                <Button onAction="#showContact" styleClass="nav-btn, nav-btn-active" text="Contact" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="30" styleClass="main-content">
+                <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+
+                <VBox alignment="CENTER" spacing="12" styleClass="page-hero">
+                    <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
+                    <Label styleClass="page-hero-tag" text="CONTACT" />
+                    <Label styleClass="hero-title" text="Get In Touch"><font><Font name="System Bold" size="34" /></font></Label>
+                    <Label styleClass="hero-subtitle" text="We're here to help — reach out to the right department">
+                        <font><Font name="System" size="15" /></font>
+                    </Label>
+                </VBox>
+
+                <HBox spacing="25">
+                    <!-- Contact Info -->
+                    <VBox spacing="20" HBox.hgrow="ALWAYS">
+
+                        <VBox spacing="15" styleClass="contact-info-card">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="section-title" text="📍  University Address">
+                                <font><Font name="System Bold" size="16" /></font>
+                            </Label>
+                            <Label styleClass="program-desc" text="West Palashi , Dhaka-1000 , Bangladesh" wrapText="true" />
+                        </VBox>
+
+                        <VBox spacing="15" styleClass="contact-info-card">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="section-title" text="📞  Phone Numbers">
+                                <font><Font name="System Bold" size="16" /></font>
+                            </Label>
+                            <VBox spacing="8">
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="Main Switchboard:" />
+                                    <Label styleClass="cal-value" text="+880-2-9665650" />
+                                </HBox>
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="Vice Chancellor Office:" />
+                                    <Label styleClass="cal-value" text="+880-2-9665600" />
+                                </HBox>
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="Registrar Office:" />
+                                    <Label styleClass="cal-value" text="+880-2-9665610" />
+                                </HBox>
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="UG Admissions:" />
+                                    <Label styleClass="cal-value" text="+880-2-9665620" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                        <VBox spacing="15" styleClass="contact-info-card">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="section-title" text="✉️  Email Addresses">
+                                <font><Font name="System Bold" size="16" /></font>
+                            </Label>
+                            <VBox spacing="8">
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="General Enquiries:" />
+                                    <Label styleClass="cal-value" text="info@buet.ac.bd" />
+                                </HBox>
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="UG Admissions:" />
+                                    <Label styleClass="cal-value" text="ugadmission@buet.ac.bd" />
+                                </HBox>
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="Registrar:" />
+                                    <Label styleClass="cal-value" text="registrar@buet.ac.bd" />
+                                </HBox>
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="Webmaster:" />
+                                    <Label styleClass="cal-value" text="webmaster@buet.ac.bd" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                        <VBox spacing="15" styleClass="contact-info-card">
+                            <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                            <Label styleClass="section-title" text="🕐  Office Hours">
+                                <font><Font name="System Bold" size="16" /></font>
+                            </Label>
+                            <VBox spacing="6">
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="Sunday – Thursday:" />
+                                    <Label styleClass="cal-value" text="8:00 AM – 5:00 PM" />
+                                </HBox>
+                                <HBox spacing="15">
+                                    <Label minWidth="180" styleClass="cal-label" text="Thursday &amp; Friday" />
+                                    <Label styleClass="cal-value" text="Closed (Public Holidays)" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+
+                    <!-- Message Form -->
+                    <VBox maxWidth="420" minWidth="380" spacing="15" styleClass="contact-form-card">
+                        <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                        <Label styleClass="section-title" text="💬  Send Us a Message">
+                            <font><Font name="System Bold" size="18" /></font>
+                        </Label>
+                        <Label styleClass="program-desc" text="Fill in the form and we will get back to you as soon as possible." wrapText="true" />
+
+                        <Label styleClass="form-label" text="Full Name" />
+                        <TextField fx:id="nameField" promptText="Your full name" styleClass="contact-field" />
+
+                        <Label styleClass="form-label" text="Email Address" />
+                        <TextField fx:id="emailField" promptText="your@email.com" styleClass="contact-field" />
+
+                        <Label styleClass="form-label" text="Subject" />
+                        <TextField fx:id="subjectField" promptText="Message subject" styleClass="contact-field" />
+
+                        <Label styleClass="form-label" text="Message" />
+                        <TextArea fx:id="messageArea" prefRowCount="5" promptText="Write your message here..." styleClass="contact-textarea" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></TextArea>
+
+                        <Button maxWidth="Infinity" onAction="#sendMessage" styleClass="hero-btn" text="Send Message">
+                            <font><Font name="System Bold" size="14" /></font>
+                        </Button>
+                    </VBox>
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <VBox styleClass="footer">
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+            <HBox alignment="CENTER" spacing="50">
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Quick Links"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Hyperlink onAction="#showAboutBUET" styleClass="footer-link" text="About BUET" />
+                    <Hyperlink onAction="#showAdmissions" styleClass="footer-link" text="Admissions" />
+                </VBox>
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Contact"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Label styleClass="footer-text" text="West Palashi, Dhaka 1205" />
+                    <Label styleClass="footer-text" text="Phone: +880-2-9665650" />
+                    <Label styleClass="footer-text" text="Email: info@buet.ac.bd" />
+                </VBox>
+            </HBox>
+            <Label alignment="CENTER" styleClass="copyright" text="© 2026 Bangladesh University of Engineering and Technology. All Rights Reserved."><font><Font size="12" /></font></Label>
+        </VBox>
+    </bottom>
+</BorderPane>

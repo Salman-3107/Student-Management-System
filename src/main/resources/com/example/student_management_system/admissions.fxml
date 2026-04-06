@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.AdmissionsController">
+
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="university-bar">
+                <padding><Insets bottom="15" left="30" right="30" top="15" /></padding>
+                <ImageView fitHeight="104.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../../../buet%20logo.png" /></image>
+                </ImageView>
+                <VBox spacing="5">
+                    <Label styleClass="university-name-bangla" text="বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়"><font><Font name="System" size="18" /></font></Label>
+                    <Label styleClass="university-name" text="BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY"><font><Font name="System Bold" size="16" /></font></Label>
+                    <Label styleClass="subtitle" text="Student Management System"><font><Font name="System" size="12" /></font></Label>
+                </VBox>
+                <Button onAction="#handleLogin" prefHeight="40" prefWidth="100" styleClass="login-btn" text="Login"><font><Font name="System Bold" size="14" /></font></Button>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="0" styleClass="nav-bar">
+                <padding><Insets left="30" /></padding>
+                <Button onAction="#showHome" styleClass="nav-btn" text="Home" />
+                <Button onAction="#showAcademics" styleClass="nav-btn" text="Academics" />
+                <Button onAction="#showAdmissions" styleClass="nav-btn, nav-btn-active" text="Admissions" />
+                <Button onAction="#showDepartments" styleClass="nav-btn" text="Departments" />
+                <Button onAction="#showResearch" styleClass="nav-btn" text="Research" />
+                <Button onAction="#showCampusLife" styleClass="nav-btn" text="Campus Life" />
+                <Button onAction="#showContact" styleClass="nav-btn" text="Contact" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="content-scroll">
+            <HBox alignment="TOP_LEFT" spacing="0" styleClass="main-content">
+                <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+
+                <!-- Left Sidebar (like buet.ac.bd) -->
+                <VBox maxWidth="220" minWidth="220" spacing="0" styleClass="admission-sidebar">
+                    <padding><Insets bottom="20" left="0" right="15" top="0" /></padding>
+
+                    <Label styleClass="admission-sidebar-title" text="UNDERGRADUATE&#10;ADMISSION 2025-26">
+                        <font><Font name="System Bold" size="15" /></font>
+                    </Label>
+
+                    <Separator />
+
+                    <Button maxWidth="Infinity" onAction="#showHome_section" styleClass="sidebar-btn" text="Home" />
+                    <Button maxWidth="Infinity" onAction="#showProspectus" styleClass="sidebar-btn" text="Prospectus" />
+                    <Button maxWidth="Infinity" onAction="#showForeignInstructions" styleClass="sidebar-btn" text="Instructions For Foreign Nationals" wrapText="true" />
+                    <Button maxWidth="Infinity" onAction="#showPaymentProcess" styleClass="sidebar-btn" text="Payment Process" />
+                    <Button maxWidth="Infinity" onAction="#showFAQ" styleClass="sidebar-btn" text="FAQ" />
+                </VBox>
+
+                <!-- Main Content -->
+                <VBox spacing="20" HBox.hgrow="ALWAYS">
+                    <padding><Insets bottom="0" left="20" right="0" top="0" /></padding>
+
+                    <!-- Contact email -->
+                    <HBox alignment="CENTER_RIGHT">
+                        <Label styleClass="admission-email-label" text="✉  ugadmission@buet.ac.bd" />
+                    </HBox>
+
+                    <Label styleClass="admission-page-title" text="Home">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+
+                    <Separator />
+
+                    <!-- Notice 2 -->
+                    <VBox styleClass="admission-notice-block">
+                        <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="admission-notice-badge" text="ADMISSION NOTICE - 2" />
+                            <Label styleClass="admission-notice-date" text="[08/03/2026]" />
+                        </HBox>
+                    </VBox>
+
+                    <Button maxWidth="Infinity" onAction="#openDeptAlloc2Eng" styleClass="admission-link-btn" text="Department Allocation (2nd Run) of Candidates (Engineering &amp; URP)" />
+                    <Button maxWidth="Infinity" onAction="#openDeptAlloc2Arch" styleClass="admission-link-btn" text="Department Allocation (2nd Run) of Candidates (Architecture)" />
+
+                    <!-- Notice 1 -->
+                    <VBox styleClass="admission-notice-block">
+                        <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="admission-notice-badge" text="ADMISSION NOTICE - 1" />
+                            <Label styleClass="admission-notice-date" text="[17/02/2026]" />
+                        </HBox>
+                    </VBox>
+
+                    <Button maxWidth="Infinity" onAction="#openMedicalForm" styleClass="admission-medical-btn" text="MEDICAL SCREENING FORM" />
+
+                    <Button maxWidth="Infinity" onAction="#openDeptAlloc1Eng" styleClass="admission-link-btn" text="Department Allocation (1st Run) of Candidates (Engineering &amp; URP)" />
+                    <Button maxWidth="Infinity" onAction="#openDeptAlloc1Arch" styleClass="admission-link-btn" text="Department Allocation (1st Run) of Candidates (Architecture)" />
+
+                    <Separator />
+
+                    <!-- Important Dates -->
+                    <VBox spacing="15" styleClass="info-box-dark">
+                        <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                        <Label styleClass="section-title" text="📅  Important Dates — UG Admission 2025-26">
+                            <font><Font name="System Bold" size="16" /></font>
+                        </Label>
+                        <VBox spacing="8">
+                            <HBox spacing="20">
+                                <Label minWidth="250" styleClass="cal-label" text="Online Application Deadline:" />
+                                <Label styleClass="cal-value" text="15 October 2025" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="250" styleClass="cal-label" text="Admission Test Date:" />
+                                <Label styleClass="cal-value" text="14 November 2025" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="250" styleClass="cal-label" text="Result Publication:" />
+                                <Label styleClass="cal-value" text="25 November 2025" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="250" styleClass="cal-label" text="1st Run Department Allocation:" />
+                                <Label styleClass="cal-value" text="17 February 2026" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="250" styleClass="cal-label" text="2nd Run Department Allocation:" />
+                                <Label styleClass="cal-value" text="08 March 2026" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="250" styleClass="cal-label" text="Session Commencement:" />
+                                <Label styleClass="cal-value" text="January 2026" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+
+                    <!-- Eligibility -->
+                    <VBox spacing="12" styleClass="program-section">
+                        <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                        <Label styleClass="section-title" text="✅  Eligibility Criteria">
+                            <font><Font name="System Bold" size="16" /></font>
+                        </Label>
+                        <Label styleClass="program-desc" text="• Passed SSC / equivalent with minimum GPA 4.00 (no subject below B grade)&#10;• Passed HSC / equivalent with minimum GPA 5.00 and science group (Physics, Chemistry, Math)&#10;• Must have passed both SSC and HSC from Bangladesh within the last 2 years&#10;• Foreign nationals admitted through a separate quota as per BUET regulations&#10;• Age: not more than 21 years at time of admission" wrapText="true" />
+                    </VBox>
+
+                    <!-- Seat Distribution -->
+                    <VBox spacing="12" styleClass="program-section">
+                        <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                        <Label styleClass="section-title" text="🏫  Seat Distribution 2025–26">
+                            <font><Font name="System Bold" size="16" /></font>
+                        </Label>
+                        <VBox prefHeight="178.0" prefWidth="747.0" spacing="6">
+                            <HBox spacing="20">
+                                <Label minWidth="270" styleClass="cal-label" text="Civil Engineering (CE):" />
+                                <Label styleClass="cal-value" text="195 seats" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="270" styleClass="cal-label" text="Electrical &amp; Electronic Engg. (EEE):" />
+                                <Label styleClass="cal-value" text="195 seats" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="270" styleClass="cal-label" text="Computer Science &amp; Engg. (CSE):" />
+                                <Label styleClass="cal-value" text="120 seats" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="270" styleClass="cal-label" text="Mechanical Engineering (ME):" />
+                                <Label styleClass="cal-value" text="180 seats" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="270" styleClass="cal-label" text="Architecture (Arch):" />
+                                <Label styleClass="cal-value" text="60 seats" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="270" styleClass="cal-label" text="Urban &amp; Regional Planning (URP):" />
+                                <Label styleClass="cal-value" text="30 seats" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="270" styleClass="cal-label" text="Chemical Engineering (ChE):" />
+                                <Label styleClass="cal-value" text="60 seats" />
+                            </HBox>
+                            <HBox spacing="20">
+                                <Label minWidth="270" styleClass="cal-label" text="Biomedical Engineering (BME):" />
+                                <Label styleClass="cal-value" text="30 seats" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+
+                </VBox>
+            </HBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <VBox styleClass="footer">
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+            <HBox alignment="CENTER" spacing="50">
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Quick Links"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Hyperlink onAction="#showAboutBUET" styleClass="footer-link" text="About BUET" />
+                    <Hyperlink onAction="#showAdmissions" styleClass="footer-link" text="Admissions" />
+                </VBox>
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Contact"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Label styleClass="footer-text" text="West Palashi, Dhaka 1205" />
+                    <Label styleClass="footer-text" text="Phone: +880-2-9665650" />
+                    <Label styleClass="footer-text" text="Email: info@buet.ac.bd" />
+                </VBox>
+            </HBox>
+            <Label alignment="CENTER" styleClass="copyright" text="© 2026 Bangladesh University of Engineering and Technology. All Rights Reserved."><font><Font size="12" /></font></Label>
+        </VBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.AboutBUETController">
+
+    <!-- Top Header -->
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="university-bar">
+                <padding><Insets bottom="15" left="30" right="30" top="15" /></padding>
+                <ImageView fitHeight="104.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../../../buet%20logo.png" /></image>
+                </ImageView>
+                <VBox spacing="5">
+                    <Label styleClass="university-name-bangla" text="বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়"><font><Font name="System" size="18" /></font></Label>
+                    <Label styleClass="university-name" text="BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY"><font><Font name="System Bold" size="16" /></font></Label>
+                    <Label styleClass="subtitle" text="Student Management System"><font><Font name="System" size="12" /></font></Label>
+                </VBox>
+                <Button onAction="#handleLogin" prefHeight="40" prefWidth="100" styleClass="login-btn" text="Login"><font><Font name="System Bold" size="14" /></font></Button>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="0" styleClass="nav-bar">
+                <padding><Insets left="30" /></padding>
+                <Button onAction="#showHome" styleClass="nav-btn" text="Home" />
+                <Button onAction="#showAcademics" styleClass="nav-btn" text="Academics" />
+                <Button onAction="#showAdmissions" styleClass="nav-btn" text="Admissions" />
+                <Button onAction="#showDepartments" styleClass="nav-btn" text="Departments" />
+                <Button onAction="#showResearch" styleClass="nav-btn" text="Research" />
+                <Button onAction="#showCampusLife" styleClass="nav-btn" text="Campus Life" />
+                <Button onAction="#showContact" styleClass="nav-btn" text="Contact" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="0" styleClass="main-content">
+
+                <!-- Hero Section -->
+                <VBox alignment="CENTER" spacing="12" styleClass="page-hero">
+                    <padding><Insets bottom="50" left="40" right="40" top="50" /></padding>
+                    <Label styleClass="page-hero-tag" text="ABOUT BUET" />
+                    <Label styleClass="hero-title" text="Bangladesh University of Engineering &amp; Technology">
+                        <font><Font name="System Bold" size="32" /></font>
+                    </Label>
+                    <Label styleClass="hero-subtitle" text="Shaping the future through engineering excellence since 1876" wrapText="true">
+                        <font><Font name="System" size="15" /></font>
+                    </Label>
+                </VBox>
+
+                <VBox spacing="30">
+                    <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
+
+                    <!-- Overview Section -->
+                    <VBox spacing="15" styleClass="info-card">
+                        <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+                        <Label styleClass="section-title" text="🏛️  Overview">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                        <Separator />
+                        <Label styleClass="program-desc" wrapText="true"
+                               text="Bangladesh University of Engineering and Technology (BUET) is one of the oldest and most prestigious institutions for higher education in science, engineering, and architecture in Bangladesh. The university traces its roots back to 1876 when the Dhaka Survey School was established. Over the decades, it evolved through various transformations — the Civil Engineering School (1876), Ahsanullah School of Engineering (1908), Ahsanullah Engineering College (1947), and ultimately became the Bangladesh University of Engineering and Technology in 1971, following the independence of Bangladesh." />
+                        <Label styleClass="program-desc" wrapText="true"
+                               text="Located in the heart of Dhaka, BUET has consistently produced world-class engineers, architects, and planners who have made significant contributions both nationally and internationally. The university is widely recognized for its rigorous academic standards, cutting-edge research, and commitment to technological innovation." />
+                    </VBox>
+
+                    <!-- Mission, Vision, Values -->
+                    <GridPane hgap="20" vgap="20">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33.33" />
+                            <ColumnConstraints percentWidth="33.33" />
+                            <ColumnConstraints percentWidth="33.34" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                        </rowConstraints>
+
+                        <!-- Mission -->
+                        <VBox spacing="12" styleClass="feature-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                            <Label styleClass="card-icon" text="🎯"><font><Font size="36" /></font></Label>
+                            <Label styleClass="card-title" text="Our Mission"><font><Font name="System Bold" size="18" /></font></Label>
+                            <Label styleClass="card-text" wrapText="true"
+                                   text="To provide quality education in engineering, technology, and architecture; to conduct research for the advancement of knowledge; and to contribute to national development through trained professionals." />
+                        </VBox>
+
+                        <!-- Vision -->
+                        <VBox spacing="12" styleClass="feature-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                            <Label styleClass="card-icon" text="🌟"><font><Font size="36" /></font></Label>
+                            <Label styleClass="card-title" text="Our Vision"><font><Font name="System Bold" size="18" /></font></Label>
+                            <Label styleClass="card-text" wrapText="true"
+                                   text="To be a globally recognized center of excellence in engineering and technology education, research, and innovation that drives sustainable development and addresses national and global challenges." />
+                        </VBox>
+
+                        <!-- Values -->
+                        <VBox spacing="12" styleClass="feature-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                            <Label styleClass="card-icon" text="⚖️"><font><Font size="36" /></font></Label>
+                            <Label styleClass="card-title" text="Core Values"><font><Font name="System Bold" size="18" /></font></Label>
+                            <Label styleClass="card-text" wrapText="true"
+                                   text="Integrity, Excellence, Innovation, Inclusivity, and Service to Nation. These values guide every aspect of our academic programs, research endeavors, and student development activities." />
+                        </VBox>
+                    </GridPane>
+
+                    <!-- History Timeline -->
+                    <VBox spacing="15" styleClass="info-card">
+                        <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+                        <Label styleClass="section-title" text="📅  Historical Milestones">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                        <Separator />
+
+                        <HBox spacing="20">
+                            <VBox minWidth="80" alignment="CENTER">
+                                <Label styleClass="stat-value" text="1876" />
+                            </VBox>
+                            <VBox spacing="4">
+                                <Label styleClass="card-title" text="Dhaka Survey School Founded" />
+                                <Label styleClass="program-desc" wrapText="true" text="The origins of BUET begin with the establishment of the Dhaka Survey School under British colonial rule, laying the foundation for engineering education in the region." />
+                            </VBox>
+                        </HBox>
+                        <Separator />
+
+                        <HBox spacing="20">
+                            <VBox minWidth="80" alignment="CENTER">
+                                <Label styleClass="stat-value" text="1908" />
+                            </VBox>
+                            <VBox spacing="4">
+                                <Label styleClass="card-title" text="Ahsanullah School of Engineering" />
+                                <Label styleClass="program-desc" wrapText="true" text="The institution was renamed to Ahsanullah School of Engineering, expanding its scope and curriculum to train engineers for colonial India." />
+                            </VBox>
+                        </HBox>
+                        <Separator />
+
+                        <HBox spacing="20">
+                            <VBox minWidth="80" alignment="CENTER">
+                                <Label styleClass="stat-value" text="1947" />
+                            </VBox>
+                            <VBox spacing="4">
+                                <Label styleClass="card-title" text="Ahsanullah Engineering College" />
+                                <Label styleClass="program-desc" wrapText="true" text="Following the partition of India, it became Ahsanullah Engineering College under Pakistan, granting its own Bachelor's degree in Engineering." />
+                            </VBox>
+                        </HBox>
+                        <Separator />
+
+                        <HBox spacing="20">
+                            <VBox minWidth="80" alignment="CENTER">
+                                <Label styleClass="stat-value" text="1962" />
+                            </VBox>
+                            <VBox spacing="4">
+                                <Label styleClass="card-title" text="East Pakistan University of Engineering &amp; Technology" />
+                                <Label styleClass="program-desc" wrapText="true" text="Elevated to full university status as EPUET, offering graduate programs and expanding research capacity significantly." />
+                            </VBox>
+                        </HBox>
+                        <Separator />
+
+                        <HBox spacing="20">
+                            <VBox minWidth="80" alignment="CENTER">
+                                <Label styleClass="stat-value" text="1971" />
+                            </VBox>
+                            <VBox spacing="4">
+                                <Label styleClass="card-title" text="BUET — Bangladesh's Premier Engineering University" />
+                                <Label styleClass="program-desc" wrapText="true" text="After Bangladesh's independence, the university was renamed Bangladesh University of Engineering and Technology (BUET), starting a new chapter as the nation's flagship engineering institution." />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Key Statistics -->
+                    <VBox spacing="15" styleClass="info-card">
+                        <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+                        <Label styleClass="section-title" text="📊  BUET at a Glance">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                        <Separator />
+                        <GridPane hgap="20" vgap="20">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="25" />
+                                <ColumnConstraints percentWidth="25" />
+                                <ColumnConstraints percentWidth="25" />
+                                <ColumnConstraints percentWidth="25" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints />
+                            </rowConstraints>
+
+                            <VBox alignment="CENTER" spacing="8" styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                                <Label styleClass="stat-value" text="18" />
+                                <Label styleClass="stat-label" text="Departments" />
+                            </VBox>
+                            <VBox alignment="CENTER" spacing="8" styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                                <Label styleClass="stat-value" text="7,000+" />
+                                <Label styleClass="stat-label" text="Students Enrolled" />
+                            </VBox>
+                            <VBox alignment="CENTER" spacing="8" styleClass="stat-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                                <Label styleClass="stat-value" text="500+" />
+                                <Label styleClass="stat-label" text="Faculty Members" />
+                            </VBox>
+                            <VBox alignment="CENTER" spacing="8" styleClass="stat-card" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                                <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                                <Label styleClass="stat-value" text="150+" />
+                                <Label styleClass="stat-label" text="Years of Legacy" />
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Faculties -->
+                    <VBox spacing="15" styleClass="info-card">
+                        <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+                        <Label styleClass="section-title" text="🏫  Faculties &amp; Institutes">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                        <Separator />
+
+                        <GridPane hgap="20" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50" />
+                                <ColumnConstraints percentWidth="50" />
+                            </columnConstraints>
+
+                            <VBox spacing="8" styleClass="program-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                                <Label styleClass="card-title" text="Faculty of Civil Engineering" />
+                                <Label styleClass="program-desc" wrapText="true" text="Civil Engineering, Water Resources Engineering, Urban &amp; Regional Planning, Architecture" />
+                            </VBox>
+
+                            <VBox spacing="8" styleClass="program-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                                <Label styleClass="card-title" text="Faculty of Electrical &amp; Electronic Engineering" />
+                                <Label styleClass="program-desc" wrapText="true" text="Electrical &amp; Electronic Engineering, Computer Science &amp; Engineering, Biomedical Engineering" />
+                            </VBox>
+
+                            <VBox spacing="8" styleClass="program-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                                <Label styleClass="card-title" text="Faculty of Mechanical Engineering" />
+                                <Label styleClass="program-desc" wrapText="true" text="Mechanical Engineering, Industrial &amp; Production Engineering, Naval Architecture &amp; Marine Engineering" />
+                            </VBox>
+
+                            <VBox spacing="8" styleClass="program-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                                <Label styleClass="card-title" text="Faculty of Engineering" />
+                                <Label styleClass="program-desc" wrapText="true" text="Chemical Engineering, Materials &amp; Metallurgical Engineering, Nuclear Engineering" />
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Vice Chancellor -->
+                    <VBox spacing="15" styleClass="info-card">
+                        <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+                        <Label styleClass="section-title" text="👤  Leadership">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                        <Separator />
+                        <HBox spacing="25" alignment="CENTER_LEFT">
+                            <VBox spacing="6">
+                                <Label styleClass="card-title" text="Office of the Vice Chancellor" />
+                                <Label styleClass="program-desc" wrapText="true" text="The Vice Chancellor is the principal executive and academic officer of BUET, responsible for overseeing all academic, research, and administrative functions of the university. The VC works in close coordination with the Academic Council, Syndicate, and various statutory bodies to ensure the highest standards of education and institutional governance." />
+                                <Label styleClass="program-desc" wrapText="true" text="BUET is governed by the Bangladesh University of Engineering and Technology Act of 1971, which establishes its statutory bodies, their powers, and functions. The university operates with full academic autonomy while being accountable to the government of Bangladesh." />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Location -->
+                    <VBox spacing="15" styleClass="info-card">
+                        <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+                        <Label styleClass="section-title" text="📍  Location &amp; Campus">
+                            <font><Font name="System Bold" size="20" /></font>
+                        </Label>
+                        <Separator />
+                        <Label styleClass="program-desc" wrapText="true"
+                               text="BUET's main campus is situated in West Palashi, Dhaka 1205, Bangladesh — at the heart of the nation's capital. The campus spans several acres and houses modern academic buildings, research laboratories, student dormitories, sports facilities, and a central library with an extensive collection of technical literature." />
+                        <HBox spacing="40">
+                            <VBox spacing="6">
+                                <Label styleClass="cal-label" text="📬  Address" />
+                                <Label styleClass="cal-value" text="West Palashi, Dhaka 1205, Bangladesh" />
+                            </VBox>
+                            <VBox spacing="6">
+                                <Label styleClass="cal-label" text="📞  Phone" />
+                                <Label styleClass="cal-value" text="+880-2-9665650" />
+                            </VBox>
+                            <VBox spacing="6">
+                                <Label styleClass="cal-label" text="✉️  Email" />
+                                <Label styleClass="cal-value" text="vc@buet.ac.bd" />
+                            </VBox>
+                            <VBox spacing="6">
+                                <Label styleClass="cal-label" text="🌐  Website" />
+                                <Label styleClass="cal-value" text="www.buet.ac.bd" />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <VBox styleClass="footer">
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+            <HBox alignment="CENTER" spacing="50">
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Quick Links"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Hyperlink onAction="#showAboutBUET" styleClass="footer-link" text="About BUET" />
+                    <Hyperlink onAction="#showAdmissions" styleClass="footer-link" text="Admissions" />
+                </VBox>
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Contact"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Label styleClass="footer-text" text="West Palashi, Dhaka 1205" />
+                    <Label styleClass="footer-text" text="Phone: +880-2-9665650" />
+                    <Label styleClass="footer-text" text="Email: info@buet.ac.bd" />
+                </VBox>
+            </HBox>
+            <Label alignment="CENTER" styleClass="copyright" text="© 2026 Bangladesh University of Engineering and Technology. All Rights Reserved."><font><Font size="12" /></font></Label>
+        </VBox>
+    </bottom>
+
+</BorderPane>

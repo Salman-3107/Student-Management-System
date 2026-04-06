@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.CampusLifeController">
+
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="university-bar">
+                <padding><Insets bottom="15" left="30" right="30" top="15" /></padding>
+                <ImageView fitHeight="104.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../../../buet%20logo.png" /></image>
+                </ImageView>
+                <VBox spacing="5">
+                    <Label styleClass="university-name-bangla" text="বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়"><font><Font name="System" size="18" /></font></Label>
+                    <Label styleClass="university-name" text="BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY"><font><Font name="System Bold" size="16" /></font></Label>
+                    <Label styleClass="subtitle" text="Student Management System"><font><Font name="System" size="12" /></font></Label>
+                </VBox>
+                <Button onAction="#handleLogin" prefHeight="40" prefWidth="100" styleClass="login-btn" text="Login"><font><Font name="System Bold" size="14" /></font></Button>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="0" styleClass="nav-bar">
+                <padding><Insets left="30" /></padding>
+                <Button onAction="#showHome" styleClass="nav-btn" text="Home" />
+                <Button onAction="#showAcademics" styleClass="nav-btn" text="Academics" />
+                <Button onAction="#showAdmissions" styleClass="nav-btn" text="Admissions" />
+                <Button onAction="#showDepartments" styleClass="nav-btn" text="Departments" />
+                <Button onAction="#showResearch" styleClass="nav-btn" text="Research" />
+                <Button onAction="#showCampusLife" styleClass="nav-btn, nav-btn-active" text="Campus Life" />
+                <Button onAction="#showContact" styleClass="nav-btn" text="Contact" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="30" styleClass="main-content">
+                <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+
+                <VBox alignment="CENTER" spacing="12" styleClass="page-hero">
+                    <padding><Insets bottom="50" left="40" right="40" top="50" /></padding>
+                    <Label styleClass="page-hero-tag" text="CAMPUS LIFE" />
+                    <Label styleClass="hero-title" text="Life at BUET"><font><Font name="System Bold" size="34" /></font></Label>
+                    <Label styleClass="hero-subtitle" text="A vibrant campus community in the heart of Dhaka">
+                        <font><Font name="System" size="15" /></font>
+                    </Label>
+                </VBox>
+
+                <!-- Halls of Residence -->
+                <VBox spacing="15" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="🏠  Halls of Residence">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <Label styleClass="program-desc" text="BUET provides residential facilities for both male and female students within the campus. All halls are equipped with study rooms, common rooms, canteens, and Wi-Fi." wrapText="true" />
+                    <GridPane hgap="15" vgap="12">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33" />
+                            <ColumnConstraints percentWidth="33" />
+                            <ColumnConstraints percentWidth="34" />
+                        </columnConstraints>
+                        <VBox styleClass="campus-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="campus-card-icon" text="🏢" />
+                            <Label styleClass="program-card-title" text="Ahsanullah Hall" />
+                            <Label styleClass="program-card-text" text="Male students · ~600 seats · Est. 1968" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="campus-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="campus-card-icon" text="🏢" />
+                            <Label styleClass="program-card-title" text="Suhrawardy Hall" />
+                            <Label styleClass="program-card-text" text="Male students · ~500 seats" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="campus-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="campus-card-icon" text="🏢" />
+                            <Label styleClass="program-card-title" text="Titumir Hall" />
+                            <Label styleClass="program-card-text" text="Male students · ~400 seats" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="campus-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="campus-card-icon" text="🏢" />
+                            <Label styleClass="program-card-title" text="Dr. M.A. Rashid Hall" />
+                            <Label styleClass="program-card-text" text="Male students · Modern facilities" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="campus-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="campus-card-icon" text="🏢" />
+                            <Label styleClass="program-card-title" text="Kabi Nazrul Islam Hall" />
+                            <Label styleClass="program-card-text" text="Male students · Graduate &amp; UG" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="campus-card" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="campus-card-icon" text="🏢" />
+                            <Label styleClass="program-card-title" text="Sabekun Nahar Sony Hall" />
+                            <Label styleClass="program-card-text" text="Female students · Modern accommodation" wrapText="true" />
+                        </VBox>
+                        <rowConstraints><RowConstraints /><RowConstraints /></rowConstraints>
+                    </GridPane>
+                </VBox>
+
+                <!-- Facilities -->
+                <VBox spacing="15" styleClass="info-box-dark">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="🎓  Campus Facilities">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <GridPane hgap="15" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                        </columnConstraints>
+                        <VBox alignment="CENTER" styleClass="facility-box" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="10" right="10" top="15" /></padding>
+                            <Label styleClass="facility-icon" text="📚" />
+                            <Label styleClass="facility-name" text="Central Library" wrapText="true" />
+                            <Label styleClass="facility-desc" text="Over 120,000 volumes, e-journals &amp; digital resources" wrapText="true" />
+                        </VBox>
+                        <VBox alignment="CENTER" styleClass="facility-box" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="10" right="10" top="15" /></padding>
+                            <Label styleClass="facility-icon" text="🏟️" />
+                            <Label styleClass="facility-name" text="Sports Complex" wrapText="true" />
+                            <Label styleClass="facility-desc" text="Football, cricket, basketball, swimming pool &amp; gym" wrapText="true" />
+                        </VBox>
+                        <VBox alignment="CENTER" styleClass="facility-box" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="10" right="10" top="15" /></padding>
+                            <Label styleClass="facility-icon" text="🏥" />
+                            <Label styleClass="facility-name" text="Medical Centre" wrapText="true" />
+                            <Label styleClass="facility-desc" text="On-campus clinic with resident doctors &amp; pharmacy" wrapText="true" />
+                        </VBox>
+                        <VBox alignment="CENTER" styleClass="facility-box" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="10" right="10" top="15" /></padding>
+                            <Label styleClass="facility-icon" text="🍽️" />
+                            <Label styleClass="facility-name" text="Cafeteria &amp; Canteens" wrapText="true" />
+                            <Label styleClass="facility-desc" text="Multiple dining facilities across campus" wrapText="true" />
+                        </VBox>
+                        <rowConstraints><RowConstraints /></rowConstraints>
+                    </GridPane>
+                </VBox>
+
+                <!-- Student Clubs -->
+                <VBox spacing="15" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="🎯  Student Clubs &amp; Organizations">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <Label styleClass="program-desc" text="BUET students actively participate in a wide range of technical and cultural clubs that foster innovation, teamwork, and creative expression." wrapText="true" />
+                    <GridPane hgap="15" vgap="12">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33" />
+                            <ColumnConstraints percentWidth="33" />
+                            <ColumnConstraints percentWidth="34" />
+                        </columnConstraints>
+                        <VBox styleClass="club-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="program-card-title" text="💻  BUET Computer Club" />
+                            <Label styleClass="program-card-text" text="Programming contests, hackathons, and tech workshops" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="club-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="program-card-title" text="⚡  IEEE BUET Student Branch" />
+                            <Label styleClass="program-card-text" text="Technical lectures, international events, and engineering competitions" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="club-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="program-card-title" text="🤖  BUET Robotics Club" />
+                            <Label styleClass="program-card-text" text="Robot building, automation, and international robotics competitions" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="club-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="program-card-title" text="🎭  BUET Cultural Society" />
+                            <Label styleClass="program-card-text" text="Drama, music, dance, and cultural events throughout the year" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="club-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="program-card-title" text="📸  BUET Photography Society" />
+                            <Label styleClass="program-card-text" text="Photo exhibitions, workshops, and campus documentation" wrapText="true" />
+                        </VBox>
+                        <VBox styleClass="club-card" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <padding><Insets bottom="15" left="15" right="15" top="15" /></padding>
+                            <Label styleClass="program-card-title" text="🌍  BUET Debating Club" />
+                            <Label styleClass="program-card-text" text="Parliamentary debates, Model UN, and public speaking" wrapText="true" />
+                        </VBox>
+                        <rowConstraints><RowConstraints /><RowConstraints /></rowConstraints>
+                    </GridPane>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <VBox styleClass="footer">
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+            <HBox alignment="CENTER" spacing="50">
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Quick Links"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Hyperlink onAction="#showAboutBUET" styleClass="footer-link" text="About BUET" />
+                    <Hyperlink onAction="#showAdmissions" styleClass="footer-link" text="Admissions" />
+                </VBox>
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Contact"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Label styleClass="footer-text" text="West Palashi, Dhaka 1205" />
+                    <Label styleClass="footer-text" text="Phone: +880-2-9665650" />
+                    <Label styleClass="footer-text" text="Email: info@buet.ac.bd" />
+                </VBox>
+            </HBox>
+            <Label alignment="CENTER" styleClass="copyright" text="© 2026 Bangladesh University of Engineering and Technology. All Rights Reserved."><font><Font size="12" /></font></Label>
+        </VBox>
+    </bottom>
+</BorderPane>

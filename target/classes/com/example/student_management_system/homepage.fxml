@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.HomepageController">
+
+    <!-- Top Header -->
+    <top>
+        <VBox styleClass="header">
+            <!-- University Name Bar -->
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="university-bar">
+                <padding>
+                    <Insets bottom="15" left="30" right="30" top="15" />
+                </padding>
+                <ImageView fitHeight="104.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../buet%20logo.png" />
+                    </image>
+                </ImageView>
+
+                <!-- University Name -->
+                <VBox spacing="5">
+                    <Label styleClass="university-name-bangla" text="বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়">
+                        <font>
+                            <Font name="System" size="18" />
+                        </font>
+                    </Label>
+                    <Label styleClass="university-name" text="BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY">
+                        <font>
+                            <Font name="System Bold" size="16" />
+                        </font>
+                    </Label>
+                    <Label styleClass="subtitle" text="Student Management System">
+                        <font>
+                            <Font name="System" size="12" />
+                        </font>
+                    </Label>
+                </VBox>
+
+                <!-- Login Button -->
+                <Button onAction="#handleLogin" prefHeight="40" prefWidth="100" styleClass="login-btn" text="Login">
+                    <font>
+                        <Font name="System Bold" size="14" />
+                    </font>
+                </Button>
+            </HBox>
+
+            <!-- Navigation Menu -->
+            <HBox alignment="CENTER_LEFT" spacing="0" styleClass="nav-bar">
+                <padding>
+                    <Insets left="30" />
+                </padding>
+
+                <Button onAction="#showHome" styleClass="nav-btn" text="Home" />
+                <Button onAction="#showAcademics" styleClass="nav-btn" text="Academics" />
+                <Button onAction="#showAdmissions" styleClass="nav-btn" text="Admissions" />
+                <Button onAction="#showDepartments" styleClass="nav-btn" text="Departments" />
+                <Button onAction="#showResearch" styleClass="nav-btn" text="Research" />
+                <Button onAction="#showCampusLife" styleClass="nav-btn" text="Campus Life" />
+                <Button onAction="#showContact" styleClass="nav-btn" text="Contact" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="30" styleClass="main-content">
+                <padding>
+                    <Insets bottom="30" left="30" right="30" top="30" />
+                </padding>
+
+                <!-- Hero Section -->
+                <VBox alignment="CENTER" spacing="20" styleClass="hero-section">
+                    <padding>
+                        <Insets bottom="60" left="40" right="40" top="60" />
+                    </padding>
+
+                    <Label styleClass="hero-title" text="Welcome to BUET Student Portal">
+                        <font>
+                            <Font name="System Bold" size="36" />
+                        </font>
+                    </Label>
+
+                    <Label styleClass="hero-subtitle" text="Excellence in Engineering Education Since 1876">
+                        <font>
+                            <Font name="System" size="18" />
+                        </font>
+                    </Label>
+
+                    <HBox alignment="CENTER" spacing="15">
+                        <Button onAction="#openStudentPortal" styleClass="hero-btn" text="Student Portal">
+                            <font>
+                                <Font name="System Bold" size="14" />
+                            </font>
+                        </Button>
+                        <Button onAction="#openFacultyPortal" styleClass="hero-btn-outline" text="Faculty Portal">
+                            <font>
+                                <Font name="System Bold" size="14" />
+                            </font>
+                        </Button>
+                    </HBox>
+                </VBox>
+
+                <!-- Quick Links Section -->
+                <GridPane hgap="20" styleClass="quick-links-section" vgap="20">
+                    <!-- Card 1: Admissions -->
+                    <VBox spacing="15" styleClass="feature-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+                        <Label styleClass="card-icon" text="📝">
+                            <font>
+                                <Font size="40" />
+                            </font>
+                        </Label>
+                        <Label styleClass="card-title" text="Admissions">
+                            <font>
+                                <Font name="System Bold" size="20" />
+                            </font>
+                        </Label>
+                        <Label styleClass="card-text" text="Apply for undergraduate and graduate programs" wrapText="true">
+                            <font>
+                                <Font size="13" />
+                            </font>
+                        </Label>
+                        <Button onAction="#showAdmissions" styleClass="card-btn" text="Learn More" />
+                    </VBox>
+
+                    <!-- Card 2: Academics -->
+                    <VBox spacing="15" styleClass="feature-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+                        <Label styleClass="card-icon" text="📚">
+                            <font>
+                                <Font size="40" />
+                            </font>
+                        </Label>
+                        <Label styleClass="card-title" text="Academics">
+                            <font>
+                                <Font name="System Bold" size="20" />
+                            </font>
+                        </Label>
+                        <Label styleClass="card-text" text="Explore our world-class engineering programs" wrapText="true">
+                            <font>
+                                <Font size="13" />
+                            </font>
+                        </Label>
+                        <Button onAction="#showAcademics" styleClass="card-btn" text="View Programs" />
+                    </VBox>
+
+                    <!-- Card 3: Research -->
+                    <VBox spacing="15" styleClass="feature-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+                        <Label styleClass="card-icon" text="🔬">
+                            <font>
+                                <Font size="40" />
+                            </font>
+                        </Label>
+                        <Label styleClass="card-title" text="Research">
+                            <font>
+                                <Font name="System Bold" size="20" />
+                            </font>
+                        </Label>
+                        <Label styleClass="card-text" text="Discover cutting-edge research and innovation" wrapText="true">
+                            <font>
+                                <Font size="13" />
+                            </font>
+                        </Label>
+                        <Button onAction="#showResearch" styleClass="card-btn" text="Explore" />
+                    </VBox>
+
+                    <!-- Card 4: Campus Life -->
+                    <VBox spacing="15" styleClass="feature-card" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+                        <Label styleClass="card-icon" text="🏛️">
+                            <font>
+                                <Font size="40" />
+                            </font>
+                        </Label>
+                        <Label styleClass="card-title" text="Campus Life">
+                            <font>
+                                <Font name="System Bold" size="20" />
+                            </font>
+                        </Label>
+                        <Label styleClass="card-text" text="Experience vibrant student life and activities" wrapText="true">
+                            <font>
+                                <Font size="13" />
+                            </font>
+                        </Label>
+                        <Button onAction="#showCampusLife" styleClass="card-btn" text="Discover" />
+                    </VBox>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <!-- News & Notices Section -->
+                <HBox spacing="20" styleClass="info-section">
+                    <!-- Latest News -->
+                    <VBox spacing="15" styleClass="news-box" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <Label styleClass="section-title" text="📰 Latest News">
+                            <font>
+                                <Font name="System Bold" size="22" />
+                            </font>
+                        </Label>
+
+                        <VBox spacing="12">
+                            <HBox spacing="10" styleClass="news-item">
+                                <Label styleClass="bullet" text="•" />
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="news-title" text="BUET Ranks #761-770 in QS World University Rankings 2026" wrapText="true">
+                                        <font>
+                                            <Font name="System Bold" size="13" />
+                                        </font>
+                                    </Label>
+                                    <Label styleClass="news-date" text="Jan 25, 2026">
+                                        <font>
+                                            <Font size="11" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+
+                            <Separator />
+
+                            <HBox spacing="10" styleClass="news-item">
+                                <Label styleClass="bullet" text="•" />
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="news-title" text="International Conference on Civil Engineering 2026" wrapText="true">
+                                        <font>
+                                            <Font name="System Bold" size="13" />
+                                        </font>
+                                    </Label>
+                                    <Label styleClass="news-date" text="Jan 20, 2026">
+                                        <font>
+                                            <Font size="11" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+
+                            <Separator />
+
+                            <HBox spacing="10" styleClass="news-item">
+                                <Label styleClass="bullet" text="•" />
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="news-title" text="BUET Team Wins IEEE Regional Competition" wrapText="true">
+                                        <font>
+                                            <Font name="System Bold" size="13" />
+                                        </font>
+                                    </Label>
+                                    <Label styleClass="news-date" text="Jan 15, 2026">
+                                        <font>
+                                            <Font size="11" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <Button styleClass="view-all-btn" text="View All News" />
+                    </VBox>
+
+                    <!-- Notices -->
+                    <VBox spacing="15" styleClass="notice-box" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <Label styleClass="section-title" text="📢 Important Notices">
+                            <font>
+                                <Font name="System Bold" size="22" />
+                            </font>
+                        </Label>
+
+                        <VBox spacing="12">
+                            <HBox spacing="10" styleClass="notice-item">
+                                <Label styleClass="notice-badge" text="!" />
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notice-title" text="Mid-term Examination Schedule Published" wrapText="true">
+                                        <font>
+                                            <Font name="System Bold" size="13" />
+                                        </font>
+                                    </Label>
+                                    <Label styleClass="notice-date" text="Feb 01, 2026">
+                                        <font>
+                                            <Font size="11" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+
+                            <Separator />
+
+                            <HBox spacing="10" styleClass="notice-item">
+                                <Label styleClass="notice-badge" text="!" />
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notice-title" text="Course Registration Deadline Extended" wrapText="true">
+                                        <font>
+                                            <Font name="System Bold" size="13" />
+                                        </font>
+                                    </Label>
+                                    <Label styleClass="notice-date" text="Jan 28, 2026">
+                                        <font>
+                                            <Font size="11" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+
+                            <Separator />
+
+                            <HBox spacing="10" styleClass="notice-item">
+                                <Label styleClass="notice-badge" text="!" />
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notice-title" text="New Admission Circular for 2026-27" wrapText="true">
+                                        <font>
+                                            <Font name="System Bold" size="13" />
+                                        </font>
+                                    </Label>
+                                    <Label styleClass="notice-date" text="Jan 22, 2026">
+                                        <font>
+                                            <Font size="11" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <Button styleClass="view-all-btn" text="View All Notices" />
+                    </VBox>
+                </HBox>
+
+                <!-- Departments Section -->
+                <VBox spacing="20" styleClass="departments-section">
+                    <Label styleClass="section-title" text="🏫 Our Departments">
+                        <font>
+                            <Font name="System Bold" size="24" />
+                        </font>
+                    </Label>
+
+                    <GridPane hgap="15" vgap="15">
+                        <Button onAction="#showCE" styleClass="dept-btn" text="Civil Engineering" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Button onAction="#showEEE" styleClass="dept-btn" text="Electrical and Electronic Engineering" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button onAction="#showME" styleClass="dept-btn" text="Mechanical Engineering" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Button onAction="#showCSE" styleClass="dept-btn" text="Computer Science and Engineering" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                        <Button onAction="#showArch" styleClass="dept-btn" text="Architecture" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Button onAction="#showChE" styleClass="dept-btn" text="Chemical Engineering" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button onAction="#showURP" styleClass="dept-btn" text="Urban and Regional Planning" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button onAction="#showMME" styleClass="dept-btn" text="Materials and Metallurgical Engineering" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                        <Button onAction="#showWRE" styleClass="dept-btn" text="Water Resources Engineering" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Button onAction="#showNAME" styleClass="dept-btn" text="Naval Architecture and Marine Engineering" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button onAction="#showBME" styleClass="dept-btn" text="Biomedical Engineering" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button onAction="#showIPE" styleClass="dept-btn" text="Industrial and Production Engineering" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                        <Button onAction="#showNCE" styleClass="dept-btn" text="Nanomaterials and Ceramic Engineering" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <VBox styleClass="footer">
+            <padding>
+                <Insets bottom="30" left="30" right="30" top="30" />
+            </padding>
+
+            <HBox alignment="CENTER" spacing="50">
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Quick Links">
+                        <font>
+                            <Font name="System Bold" size="14" />
+                        </font>
+                    </Label>
+                    <Hyperlink onAction="#showAboutBUET" styleClass="footer-link" text="About BUET" />
+                    <Hyperlink onAction="#showAdmissions" styleClass="footer-link" text="Admissions" />
+                </VBox>
+
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Contact">
+                        <font>
+                            <Font name="System Bold" size="14" />
+                        </font>
+                    </Label>
+                    <Label styleClass="footer-text" text="West Palashi, Dhaka 1205" />
+                    <Label styleClass="footer-text" text="Phone: +880-2-9665650" />
+                    <Label styleClass="footer-text" text="Email: info@buet.ac.bd" />
+                </VBox>
+            </HBox>
+
+            <Label alignment="CENTER" styleClass="copyright" text="© 2026 Bangladesh University of Engineering and Technology. All Rights Reserved.">
+                <font>
+                    <Font size="12" />
+                </font>
+            </Label>
+        </VBox>
+    </bottom>
+</BorderPane>

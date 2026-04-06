@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student_management_system.ResearchController">
+
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="university-bar">
+                <padding><Insets bottom="15" left="30" right="30" top="15" /></padding>
+                <ImageView fitHeight="104.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                    <image><Image url="@../../../buet%20logo.png" /></image>
+                </ImageView>
+                <VBox spacing="5">
+                    <Label styleClass="university-name-bangla" text="বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়"><font><Font name="System" size="18" /></font></Label>
+                    <Label styleClass="university-name" text="BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY"><font><Font name="System Bold" size="16" /></font></Label>
+                    <Label styleClass="subtitle" text="Student Management System"><font><Font name="System" size="12" /></font></Label>
+                </VBox>
+                <Button onAction="#handleLogin" prefHeight="40" prefWidth="100" styleClass="login-btn" text="Login"><font><Font name="System Bold" size="14" /></font></Button>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="0" styleClass="nav-bar">
+                <padding><Insets left="30" /></padding>
+                <Button onAction="#showHome" styleClass="nav-btn" text="Home" />
+                <Button onAction="#showAcademics" styleClass="nav-btn" text="Academics" />
+                <Button onAction="#showAdmissions" styleClass="nav-btn" text="Admissions" />
+                <Button onAction="#showDepartments" styleClass="nav-btn" text="Departments" />
+                <Button onAction="#showResearch" styleClass="nav-btn, nav-btn-active" text="Research" />
+                <Button onAction="#showCampusLife" styleClass="nav-btn" text="Campus Life" />
+                <Button onAction="#showContact" styleClass="nav-btn" text="Contact" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="content-scroll">
+            <VBox spacing="30" styleClass="main-content">
+                <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+
+                <VBox alignment="CENTER" spacing="12" styleClass="page-hero">
+                    <padding><Insets bottom="50" left="40" right="40" top="50" /></padding>
+                    <Label styleClass="page-hero-tag" text="RESEARCH" />
+                    <Label styleClass="hero-title" text="Research &amp; Innovation"><font><Font name="System Bold" size="34" /></font></Label>
+                    <Label styleClass="hero-subtitle" text="Pioneering solutions for national and global challenges through cutting-edge research">
+                        <font><Font name="System" size="15" /></font>
+                    </Label>
+                </VBox>
+
+                <!-- Research Stats -->
+                <HBox spacing="20">
+                    <VBox styleClass="stat-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                        <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                        <Label styleClass="stat-value" text="500+" />
+                        <Label styleClass="stat-label" text="Publications / Year" />
+                    </VBox>
+                    <VBox styleClass="stat-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                        <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                        <Label styleClass="stat-value" text="80+" />
+                        <Label styleClass="stat-label" text="Research Groups" />
+                    </VBox>
+                    <VBox styleClass="stat-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                        <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                        <Label styleClass="stat-value" text="30+" />
+                        <Label styleClass="stat-label" text="International Partners" />
+                    </VBox>
+                    <VBox styleClass="stat-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                        <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                        <Label styleClass="stat-value" text="150Cr+" />
+                        <Label styleClass="stat-label" text="Annual Research Funding (BDT)" />
+                    </VBox>
+                </HBox>
+
+                <!-- Research Areas -->
+                <VBox spacing="20" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="🔬  Key Research Areas">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <GridPane hgap="15" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" />
+                            <ColumnConstraints percentWidth="50" />
+                        </columnConstraints>
+                        <VBox styleClass="research-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="research-card-icon" text="🌊" />
+                            <Label styleClass="program-card-title" text="Water Resources &amp; Climate Adaptation" />
+                            <Label styleClass="program-card-text" wrapText="true" text="Flood forecasting, coastal resilience, river engineering, and climate-smart water management for Bangladesh's unique geographic context." />
+                        </VBox>
+                        <VBox styleClass="research-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="research-card-icon" text="🤖" />
+                            <Label styleClass="program-card-title" text="Artificial Intelligence &amp; Machine Learning" />
+                            <Label styleClass="program-card-text" wrapText="true" text="Deep learning, computer vision, NLP, and AI applications in healthcare, industry, and smart cities led by the CSE department." />
+                        </VBox>
+                        <VBox styleClass="research-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="research-card-icon" text="⚡" />
+                            <Label styleClass="program-card-title" text="Renewable Energy &amp; Smart Grids" />
+                            <Label styleClass="program-card-text" wrapText="true" text="Solar, wind, and biomass energy systems; energy storage; and smart grid technologies for sustainable power infrastructure." />
+                        </VBox>
+                        <VBox styleClass="research-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="research-card-icon" text="🏗️" />
+                            <Label styleClass="program-card-title" text="Earthquake-Resilient Structures" />
+                            <Label styleClass="program-card-text" wrapText="true" text="Seismic hazard assessment, structural retrofitting, and earthquake-resistant design for buildings and infrastructure in Bangladesh." />
+                        </VBox>
+                        <VBox styleClass="research-card" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="research-card-icon" text="🧬" />
+                            <Label styleClass="program-card-title" text="Biomedical Engineering &amp; Health Tech" />
+                            <Label styleClass="program-card-text" wrapText="true" text="Affordable diagnostic devices, prosthetics, telemedicine, and biosignal processing for improving healthcare in Bangladesh." />
+                        </VBox>
+                        <VBox styleClass="research-card" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <padding><Insets bottom="18" left="18" right="18" top="18" /></padding>
+                            <Label styleClass="research-card-icon" text="🏭" />
+                            <Label styleClass="program-card-title" text="Industry 4.0 &amp; Smart Manufacturing" />
+                            <Label styleClass="program-card-text" wrapText="true" text="IoT integration in manufacturing, automation, robotics, and digital transformation of Bangladesh's garment and industrial sectors." />
+                        </VBox>
+                        <rowConstraints>
+                            <RowConstraints /><RowConstraints /><RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+
+                <!-- Research Centers -->
+                <VBox spacing="15" styleClass="info-box-dark">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="🏢  Research Institutes &amp; Centers">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <VBox spacing="12">
+                        <HBox spacing="15" styleClass="news-item" alignment="CENTER_LEFT">
+                            <Label styleClass="bullet" text="•" />
+                            <VBox HBox.hgrow="ALWAYS">
+                                <Label styleClass="news-title" text="Institute of Flood Hazard Management (IFHM)" wrapText="true" />
+                                <Label styleClass="news-date" text="Specializes in flood risk, disaster management, and hydrological modelling" wrapText="true" />
+                            </VBox>
+                        </HBox>
+                        <HBox spacing="15" styleClass="news-item" alignment="CENTER_LEFT">
+                            <Label styleClass="bullet" text="•" />
+                            <VBox HBox.hgrow="ALWAYS">
+                                <Label styleClass="news-title" text="Energy Centre" wrapText="true" />
+                                <Label styleClass="news-date" text="Renewable energy, energy policy, and sustainable energy systems research" wrapText="true" />
+                            </VBox>
+                        </HBox>
+                        <HBox spacing="15" styleClass="news-item" alignment="CENTER_LEFT">
+                            <Label styleClass="bullet" text="•" />
+                            <VBox HBox.hgrow="ALWAYS">
+                                <Label styleClass="news-title" text="Centre for Energy Studies (CES)" wrapText="true" />
+                                <Label styleClass="news-date" text="Interdisciplinary energy research across engineering departments" wrapText="true" />
+                            </VBox>
+                        </HBox>
+                        <HBox spacing="15" styleClass="news-item" alignment="CENTER_LEFT">
+                            <Label styleClass="bullet" text="•" />
+                            <VBox HBox.hgrow="ALWAYS">
+                                <Label styleClass="news-title" text="Computer Centre" wrapText="true" />
+                                <Label styleClass="news-date" text="High-performance computing, AI research infrastructure, and IT services" wrapText="true" />
+                            </VBox>
+                        </HBox>
+                        <HBox spacing="15" styleClass="news-item" alignment="CENTER_LEFT">
+                            <Label styleClass="bullet" text="•" />
+                            <VBox HBox.hgrow="ALWAYS">
+                                <Label styleClass="news-title" text="Centre for Biomedical Engineering Research (CBER)" wrapText="true" />
+                                <Label styleClass="news-date" text="Healthcare technology, medical devices, and clinical engineering" wrapText="true" />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+                <!-- Recent Publications -->
+                <VBox spacing="15" styleClass="program-section">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <Label styleClass="section-title" text="📄  Recent Highlights">
+                        <font><Font name="System Bold" size="20" /></font>
+                    </Label>
+                    <VBox spacing="12">
+                        <HBox spacing="15" styleClass="news-item" alignment="TOP_LEFT">
+                            <Label styleClass="notice-badge" text="!" />
+                            <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                <Label styleClass="notice-title" text="BUET Team Develops Low-Cost Water Purification System for Rural Bangladesh" wrapText="true" />
+                                <Label styleClass="news-date" text="Published in Nature Water · March 2026" />
+                            </VBox>
+                        </HBox>
+                        <HBox spacing="15" styleClass="news-item" alignment="TOP_LEFT">
+                            <Label styleClass="notice-badge" text="!" />
+                            <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                <Label styleClass="notice-title" text="CSE BUET Achieves ICPC Asia West Championship 2025" wrapText="true" />
+                                <Label styleClass="news-date" text="Competitive Programming · February 2026" />
+                            </VBox>
+                        </HBox>
+                        <HBox spacing="15" styleClass="news-item" alignment="TOP_LEFT">
+                            <Label styleClass="notice-badge" text="!" />
+                            <VBox HBox.hgrow="ALWAYS" spacing="3">
+                                <Label styleClass="notice-title" text="BUET-Led Consortium Receives ADB Grant for Climate-Smart Infrastructure" wrapText="true" />
+                                <Label styleClass="news-date" text="ADB Funded Project · January 2026" />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <VBox styleClass="footer">
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+            <HBox alignment="CENTER" spacing="50">
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Quick Links"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Hyperlink onAction="#showAboutBUET" styleClass="footer-link" text="About BUET" />
+                    <Hyperlink onAction="#showAdmissions" styleClass="footer-link" text="Admissions" />
+                </VBox>
+                <VBox spacing="10">
+                    <Label styleClass="footer-heading" text="Contact"><font><Font name="System Bold" size="14" /></font></Label>
+                    <Label styleClass="footer-text" text="West Palashi, Dhaka 1205" />
+                    <Label styleClass="footer-text" text="Phone: +880-2-9665650" />
+                    <Label styleClass="footer-text" text="Email: info@buet.ac.bd" />
+                </VBox>
+            </HBox>
+            <Label alignment="CENTER" styleClass="copyright" text="© 2026 Bangladesh University of Engineering and Technology. All Rights Reserved."><font><Font size="12" /></font></Label>
+        </VBox>
+    </bottom>
+</BorderPane>
