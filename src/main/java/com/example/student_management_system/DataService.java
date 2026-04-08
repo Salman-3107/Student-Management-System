@@ -177,14 +177,12 @@ public class DataService {
         String sql = """
             SELECT e.student_username,
                    COALESCE(u.full_name, e.student_username) AS full_name,
-                   COALESCE(gr.attendance_mark, 0.00) AS attendance_mark,
+                   COALESCE(att.present_count, 0) AS present_count,
+                   COALESCE(att.total_count, 0) AS total_count,
                    COALESCE(gr.class_test_mark, 0.00) AS class_test_mark,
                    COALESCE(gr.assignment_mark, 0.00) AS assignment_mark,
                    COALESCE(gr.mid_mark, 0.00) AS mid_mark,
                    COALESCE(gr.final_mark, 0.00) AS final_mark,
-                   COALESCE(gr.total_mark, 0.00) AS total_mark,
-                   COALESCE(gr.letter_grade, '0.00') AS letter_grade,
-                   COALESCE(gr.grade_point, 0.00) AS grade_point,
                    COALESCE(gr.published, FALSE) AS published
             FROM enrollments e
             LEFT JOIN users u
@@ -192,6 +190,17 @@ public class DataService {
             LEFT JOIN grade_records gr
                    ON gr.student_username = e.student_username
                   AND gr.offering_id = e.offering_id
+            LEFT JOIN (
+                SELECT student_username,
+                       offering_id,
+                       SUM(CASE WHEN status <> 'ABSENT' THEN 1 ELSE 0 END) AS present_count,
+                       COUNT(*) AS total_count
+                FROM attendance_records
+                WHERE offering_id = ?
+                GROUP BY student_username, offering_id
+            ) att
+                   ON att.student_username = e.student_username
+                  AND att.offering_id = e.offering_id
             WHERE e.offering_id = ?
               AND e.status = 'ENROLLED'
             ORDER BY e.student_username
@@ -201,21 +210,34 @@ public class DataService {
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, offeringId);
+            ps.setInt(2, offeringId);
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
+                    int presentCount = rs.getInt("present_count");
+                    int totalCount = rs.getInt("total_count");
+                    double attendancePct = totalCount == 0 ? 0.0 : (presentCount * 100.0) / totalCount;
+                    double attendanceMark = convertAttendancePercentageToMark(attendancePct);
+                    double classTestMark = rs.getDouble("class_test_mark");
+                    double finalMark = rs.getDouble("final_mark");
+                    double totalMark = attendanceMark + classTestMark + finalMark;
+                    double totalPct = (totalMark / 300.0) * 100.0;
+                    String[] gradeInfo = getLetterGradeInfo(totalPct);
+
                     rows.add(new String[]{
                             rs.getString("student_username"),
                             rs.getString("full_name"),
-                            String.format("%.2f", rs.getDouble("attendance_mark")),
-                            String.format("%.2f", rs.getDouble("class_test_mark")),
+                            String.format("%.2f", attendanceMark),
+                            String.format("%.2f", classTestMark),
                             String.format("%.2f", rs.getDouble("assignment_mark")),
                             String.format("%.2f", rs.getDouble("mid_mark")),
-                            String.format("%.2f", rs.getDouble("final_mark")),
-                            String.format("%.2f", rs.getDouble("total_mark")),
-                            rs.getString("letter_grade"),
-                            String.format("%.2f", rs.getDouble("grade_point")),
-                            rs.getBoolean("published") ? "Yes" : "No"
+                            String.format("%.2f", finalMark),
+                            String.format("%.2f", totalMark),
+                            gradeInfo[0],
+                            gradeInfo[1],
+                            rs.getBoolean("published") ? "Yes" : "No",
+                            String.format("%.0f%%", attendancePct),
+                            presentCount + "/" + totalCount
                     });
                 }
             }
@@ -234,25 +256,16 @@ public class DataService {
             double classTest,
             double writtenMain
     ) {
-        double safeAttendance = clamp(attendance, 0, 30);
+        double attendancePct = getAttendancePercentage(studentUsername, offeringId);
+        double safeAttendance = convertAttendancePercentageToMark(attendancePct);
         double safeClassTest = clamp(classTest, 0, 60);
         double safeWrittenMain = clamp(writtenMain, 0, 210);
         double total = safeAttendance + safeClassTest + safeWrittenMain;
         double pct = (total / 300.0) * 100.0;
 
-        double gradePoint;
-        String letter;
-
-        if (pct >= 80) { letter = "A+"; gradePoint = 4.00; }
-        else if (pct >= 75) { letter = "A"; gradePoint = 3.75; }
-        else if (pct >= 70) { letter = "A-"; gradePoint = 3.50; }
-        else if (pct >= 65) { letter = "B+"; gradePoint = 3.25; }
-        else if (pct >= 60) { letter = "B"; gradePoint = 3.00; }
-        else if (pct >= 55) { letter = "B-"; gradePoint = 2.75; }
-        else if (pct >= 50) { letter = "C+"; gradePoint = 2.50; }
-        else if (pct >= 45) { letter = "C"; gradePoint = 2.25; }
-        else if (pct >= 40) { letter = "D"; gradePoint = 2.00; }
-        else { letter = "F"; gradePoint = 0.00; }
+        String[] gradeInfo = getLetterGradeInfo(pct);
+        String letter = gradeInfo[0];
+        double gradePoint = Double.parseDouble(gradeInfo[1]);
 
         String sql = """
             INSERT INTO grade_records
@@ -291,6 +304,56 @@ public class DataService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public double getAttendancePercentage(String studentUsername, int offeringId) {
+        String sql = """
+                SELECT COALESCE(100.0 * SUM(CASE WHEN status <> 'ABSENT' THEN 1 ELSE 0 END) / NULLIF(COUNT(*), 0), 0)
+                FROM attendance_records
+                WHERE student_username = ?
+                  AND offering_id = ?
+                """;
+
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, studentUsername);
+            ps.setInt(2, offeringId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getDouble(1);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0.0;
+    }
+
+    public double convertAttendancePercentageToMark(double attendancePct) {
+        if (attendancePct >= 90.0) return 30.0;
+        if (attendancePct >= 80.0) return 27.0;
+        if (attendancePct >= 70.0) return 24.0;
+        if (attendancePct >= 60.0) return 21.0;
+        if (attendancePct >= 50.0) return 18.0;
+        if (attendancePct >= 40.0) return 15.0;
+        if (attendancePct >= 30.0) return 12.0;
+        if (attendancePct >= 20.0) return 9.0;
+        if (attendancePct >= 10.0) return 6.0;
+        return 0.0;
+    }
+
+    private String[] getLetterGradeInfo(double pct) {
+        if (pct >= 80) return new String[]{"A+", "4.00"};
+        if (pct >= 75) return new String[]{"A", "3.75"};
+        if (pct >= 70) return new String[]{"A-", "3.50"};
+        if (pct >= 65) return new String[]{"B+", "3.25"};
+        if (pct >= 60) return new String[]{"B", "3.00"};
+        if (pct >= 55) return new String[]{"B-", "2.75"};
+        if (pct >= 50) return new String[]{"C+", "2.50"};
+        if (pct >= 45) return new String[]{"C", "2.25"};
+        if (pct >= 40) return new String[]{"D", "2.00"};
+        return new String[]{"F", "0.00"};
     }
 
     private double clamp(double value, double min, double max) {
