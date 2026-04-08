@@ -89,7 +89,7 @@ public class TeacherDashboardController {
 
     private void loadTeacherProfile(String username) {
         String sql = "SELECT COALESCE(t.department,'CSE') AS dept, COALESCE(t.designation,'Lecturer') AS desig " +
-                     "FROM teachers t WHERE t.username = ?";
+                "FROM teachers t WHERE t.username = ?";
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, username);
@@ -193,8 +193,9 @@ public class TeacherDashboardController {
 
         // ---- grade sheet card ----
         VBox gradeCard = card("Grade Sheet  (Attendance /30 · Class Test /60 · Written Main Exam /210 = /300)");
-        Label hint = new Label("Follow BUET style: Attendance 30, CT 60, Written Main Exam 210. Saving marks keeps them unpublished until you click Publish Grades.");
+        Label hint = new Label("Attendance marks are auto-calculated from saved attendance records: 90%+ = 30, 80-89% = 27, then minus 3 for each lower 10% band. Saving grades keeps them unpublished until you click Publish Grades.");
         hint.setStyle("-fx-text-fill:#aaaaaa;-fx-font-style:italic;-fx-font-size:12px;");
+        hint.setWrapText(true);
         gradeCard.getChildren().add(hint);
 
         // dynamic table holder
@@ -222,26 +223,33 @@ public class TeacherDashboardController {
 
             tableHolder.getChildren().clear();
 
-            // editable rows: [username, name, att, ct, asgn, mid, final, total, grade, gp, published]
+            // editable rows: [username, name, autoAttendanceMark, ct, asgn, mid, final, total, grade, gp, published, attendancePct, presentOverTotal]
             List<String[]> editData = new ArrayList<>();
             List<TextField[]> fieldRefs = new ArrayList<>();
 
             for (String[] row : rows) {
-                TextField attF   = numField(row[2], 60);
+                double attendanceMark = parseD(row[2]);
+
+                Label attLbl = val(String.format("%.2f", attendanceMark));
+                attLbl.setTooltip(new Tooltip("Attendance: " + row[11] + " (" + row[12] + " classes counted)"));
+                attLbl.setMinWidth(60);
+
+                Label attPctLbl = new Label(row[11]);
+                attPctLbl.setStyle("-fx-text-fill:#8fd3ff;-fx-font-size:11px;-fx-min-width:52;");
+
                 TextField ctF    = numField(row[3], 60);
                 TextField mainF  = numField(row[6], 70);
                 Label totalLbl   = val(row[7]);
                 Label gradeLbl   = val(row[8]);
                 Label gpLbl      = val(row[9]);
 
-                fieldRefs.add(new TextField[]{attF, ctF, mainF});
+                fieldRefs.add(new TextField[]{ctF, mainF});
 
                 Runnable recalc = () -> {
                     try {
-                        double a = Math.max(0, Math.min(30, parseD(attF.getText())));
                         double ct2 = Math.max(0, Math.min(60, parseD(ctF.getText())));
                         double main = Math.max(0, Math.min(210, parseD(mainF.getText())));
-                        double total300 = a + ct2 + main;
+                        double total300 = attendanceMark + ct2 + main;
                         double total100 = (total300 / 300.0) * 100.0;
                         String[] lg = letterGrade(total100);
                         totalLbl.setText(String.format("%.2f", total300));
@@ -250,7 +258,6 @@ public class TeacherDashboardController {
                         gradeLbl.setStyle("-fx-text-fill:" + gradeColor(lg[0]) + ";-fx-font-weight:bold;");
                     } catch (Exception ignored) {}
                 };
-                attF.textProperty().addListener((obs, o2, n) -> recalc.run());
                 ctF.textProperty().addListener((obs, o2, n) -> recalc.run());
                 mainF.textProperty().addListener((obs, o2, n) -> recalc.run());
                 gradeLbl.setStyle("-fx-text-fill:" + gradeColor(row[8]) + ";-fx-font-weight:bold;");
@@ -269,7 +276,8 @@ public class TeacherDashboardController {
                 HBox.setHgrow(nameLbl, Priority.ALWAYS);
 
                 studentRow.getChildren().addAll(idLbl, nameLbl,
-                        miniLbl("Att/30"), attF,
+                        miniLbl("Att/30"), attLbl,
+                        miniLbl("Att %"), attPctLbl,
                         miniLbl("CT/60"), ctF,
                         miniLbl("Written/210"), mainF,
                         miniLbl("Total/300"), totalLbl,
@@ -292,15 +300,15 @@ public class TeacherDashboardController {
                     try {
                         String sUser = editData.get(i)[0];
                         TextField[] f = fieldRefs.get(i);
-                        double att  = parseD(f[0].getText());
-                        double ct2  = parseD(f[1].getText());
-                        double main = parseD(f[2].getText());
-                        DataService.getInstance().saveOrUpdateGrade(sUser, offeringId, att, ct2, main);
+                        double ct2  = parseD(f[0].getText());
+                        double main = parseD(f[1].getText());
+                        DataService.getInstance().saveOrUpdateGrade(sUser, offeringId, 0.0, ct2, main);
                         saved++;
                     } catch (Exception ex) { ex.printStackTrace(); }
                 }
                 showAlert(Alert.AlertType.INFORMATION, "Grades Saved",
-                        "Successfully saved grades for " + saved + " student(s).");
+                        "Successfully saved grades for " + saved + " student(s). Attendance marks were calculated automatically from attendance records.");
+                loadBtn.fire();
             });
 
             // Publish handler
@@ -871,7 +879,7 @@ public class TeacherDashboardController {
 
     @FXML private void handleLogout(ActionEvent e) {
         try { Stage st = (Stage) rootPane.getScene().getWindow();
-              NavigationService.getInstance().openLogin(st); }
+            NavigationService.getInstance().openLogin(st); }
         catch (Exception ex) { ex.printStackTrace(); }
     }
 
